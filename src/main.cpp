@@ -3,16 +3,9 @@
 #include "pros/misc.h"
 #include "pros/motor_group.hpp"
 #include "pros/motors.h"
-/*
-git stash
-git pull origin -f
 
-
-OR
-
-smth smth
-git merge
-*/
+//To update to the current repository file, use 'git merge'
+// If this fails, use '_____'
 
 
 /**
