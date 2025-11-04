@@ -1,17 +1,10 @@
 #include "main.h"
-#include "Lemlib/api.hpp"
-#include "pros/misc.h"
-#include "pros/motor_group.hpp"
-#include "pros/motors.h"
+
 /*
-git stash
-git pull origin -f
-
-
-OR
-
-smth smth
+Run ts on start Jacob:
 git merge
+
+//Maybe I'll look for a way to do this automatically or smth but like yeah
 */
 
 
@@ -77,8 +70,10 @@ void competition_initialize() {
 			pros::lcd::print(5, "Right red     ");
 		} else if (autonSelector == 3) {
 			pros::lcd::print(5, "Left blue     ");
-		} else {
+		} else if (autonSelector == 4){
 			pros::lcd::print(5, "Right blue    ");
+		} else {
+			pros::lcd::print(5, "不死");
 		}
 
 		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
@@ -98,6 +93,7 @@ void competition_initialize() {
 		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
 			autonSelected = true;
 		}
+		pros::delay(25);
 	}
 }
 
@@ -153,6 +149,7 @@ void opcontrol() {
 
 			intakeControls();
     	mandibleControls();
+			
 			// delay to save resources
 			pros::delay(25);
 	} //while true

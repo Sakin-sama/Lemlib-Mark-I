@@ -1,7 +1,9 @@
 #include "globals.hpp"
 
+//chassis and master (controller) are LOWERCASE
+
 float TRACK_WIDTH = 12.875; //inches
-int DRIVETRAIN_RPM = 400; //rpm
+int DRIVETRAIN_RPM = 400; //4:2 gear ratio, 200rpm gearbox (green)
 float HORIZONTAL_DRIFT = 2; //needs tuning
 
 int autonSelector = 1;
