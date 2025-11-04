@@ -1,15 +1,11 @@
 #include "globals.hpp"
-#include "lemlib/chassis/chassis.hpp"
-#include "pros/abstract_motor.hpp"
-#include "pros/adi.hpp"
-#include "pros/misc.hpp"
-#include "pros/motors.hpp"
-#include "pros/motor_group.hpp"
-#include "pros/optical.hpp"
 
 float TRACK_WIDTH = 12.875; //inches
 int DRIVETRAIN_RPM = 400; //rpm
 float HORIZONTAL_DRIFT = 2; //needs tuning
+
+int autonSelector = 1;
+bool autonSelected = false;
 
 //Controller
     pros::Controller master(pros::E_CONTROLLER_MASTER);

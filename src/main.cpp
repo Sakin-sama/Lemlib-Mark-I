@@ -1,9 +1,8 @@
 #include "main.h"
 #include "Lemlib/api.hpp"
+#include "pros/misc.h"
 #include "pros/motor_group.hpp"
 #include "pros/motors.h"
-
-
 
 /**
  * A callback function for LLEMU's center button.
@@ -59,7 +58,37 @@ void disabled() {}
  * This task will exit when the robot is enabled and autonomous or opcontrol
  * starts.
  */
-void competition_initialize() {}
+void competition_initialize() {
+	while (autonSelected == false) {
+		if (autonSelector == 1) {
+			pros::lcd::print(5, "Left red      ");
+		} else if (autonSelector ==2 ) {
+			pros::lcd::print(5, "Right red     ");
+		} else if (autonSelector == 3) {
+			pros::lcd::print(5, "Left blue     ");
+		} else {
+			pros::lcd::print(5, "Right blue    ");
+		}
+
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+			if (autonSelector > 1) {
+				autonSelector -= 1;
+			} else {
+				autonSelector = 4;
+			}
+		}
+		if (master.get_digital_new_release(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+			if (autonSelector < 4) {
+				autonSelector += 1;
+			} else {
+				autonSelector = 1;
+			}
+		}
+		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+			autonSelected = true;
+		}
+	}
+}
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -72,7 +101,19 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+	if (autonSelector == 1) {
+		leftRed();
+	} else if (autonSelector == 2) {
+		rightRed();
+	} else if (autonSelector == 3) {
+		leftBlue();
+	} else if (autonSelector == 4) {
+		rightBlue();
+	} else {
+		pros::lcd::print(5, "No autonomous found     ");
+	}
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task

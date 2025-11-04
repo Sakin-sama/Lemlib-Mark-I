@@ -1,8 +1,9 @@
-#pragma once
-
 #include "api.h"
 #include "lemlib/api.hpp"
-#include "pros/optical.hpp"
+
+//Variables
+    extern int autonSelector;
+    extern bool autonSelected;
 
 //Controller
     extern pros::Controller master;

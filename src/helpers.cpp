@@ -1,7 +1,4 @@
 #include "helpers.hpp"
-#include "globals.hpp"
-#include "pros/misc.h"
-#include "pros/rtos.hpp"
 
 using std::abs;
 
