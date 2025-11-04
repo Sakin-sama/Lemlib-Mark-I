@@ -1,4 +1,8 @@
 #include "main.h"
+#include "Lemlib/api.hpp"
+#include "pros/misc.h"
+#include "pros/motor_group.hpp"
+#include "pros/motors.h"
 
 /*
 Run ts on start Jacob:
