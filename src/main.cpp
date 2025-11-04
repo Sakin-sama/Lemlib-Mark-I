@@ -3,6 +3,17 @@
 #include "pros/misc.h"
 #include "pros/motor_group.hpp"
 #include "pros/motors.h"
+/*
+git stash
+git pull origin -f
+
+
+OR
+
+smth smth
+git merge
+*/
+
 
 /**
  * A callback function for LLEMU's center button.
