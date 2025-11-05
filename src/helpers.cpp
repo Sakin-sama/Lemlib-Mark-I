@@ -1,13 +1,11 @@
 #include "helpers.hpp"
 
-using std::abs;
-
 int intakeMotorSetting = 0;
 int intakeMotorSettingLast = 0;
 
 //Takes a velocity percentage and outputs in the voltage format
 double motorVelocity(double givenVelocity) {
-  if (abs((givenVelocity * 127) / 100) < 127) {
+  if (std::abs((givenVelocity * 127) / 100) < 127) {
     return ((givenVelocity * 127) / 100);
   } else {
     if (givenVelocity > 0) {

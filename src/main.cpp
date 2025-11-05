@@ -6,9 +6,13 @@
 
 /*
 Run ts on start Jacob:
-git merge
 
-//Maybe I'll look for a way to do this automatically or smth but like yeah
+git checkout develop
+git pull origin develop
+
+//If you get merge conflicts or sum shit idk figure it out.
+//NOT git merge --- that's for cross-branch pulls. Use git pull for pulling from remote.
+
 */
 
 
