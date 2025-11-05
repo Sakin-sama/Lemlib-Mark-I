@@ -9,6 +9,13 @@ git pull origin develop
 
 //If you get merge conflicts or sum shit idk figure it out.
 //NOT git merge --- that's for cross-branch pulls. Use git pull for pulling from remote.
+*/
+
+/*
+
+Color Sorting only happens on top score. And it happens on the outtake level, not the intake level. Thus, color sorting should be called in topBlockExport, not intake, for the S-Bot.
+It works by switching from topExport to midExport when the color sensing recognizes the wrong color.
+
 
 */
 
