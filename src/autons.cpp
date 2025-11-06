@@ -6,7 +6,7 @@ I strongly doubt any of this is going to work
 I believe the coordinate plane's origin is at the center of the drivetrain, and the axes are relative to the drivetrain's heading, with positive x and y always being up and right from the brain.
 However, I don't know which side of our brain is left, so this may all be backwards.
 Also I think these distances are in inches.
-And I measured these distances by eyeballing a png of the board setup so like
+And I measured these distances by eyeballing a png of the board setup
 */
 
 std::string rightColor;
