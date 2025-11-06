@@ -73,6 +73,8 @@ void initialize() {
             pros::delay(20);
         }
     });
+    
+    autonomous();
 }
 
 /**
@@ -105,12 +107,15 @@ void competition_initialize() {
 			pros::lcd::print(5, "english          ");
 		}
 
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
 			if (autonSelector > 1) {
 				autonSelector -= 1;
 			} else {
 				autonSelector = 4;
 			}
+      while (master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+        pros::delay(20);
+      }
 		}
 		if (master.get_digital_new_release(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
 			if (autonSelector < 4) {
@@ -165,7 +170,11 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
+  //Temporary stuff
+    
+    
 
+  //Permanent stuff
 	while (true) {
   
 		
