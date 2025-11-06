@@ -2,10 +2,28 @@
 
 
 /*
-Run ts on start Jacob:
 
-git checkout develop
-git pull origin develop
+COMMIT TESTING CODE TO DEVELOP BEFORE MASTER
+
+
+move to a branch:
+git checkout [branch name]
+
+
+Save code to current branch:
+git add .
+git commit -m "[Commit name]"
+git push origin [Current branch]
+
+
+Send code to another branch:
+git checkout [Receiving branch]
+git merge [Sending branch]
+
+
+Create new branch:
+git checkout -b [New branch name]
+git push origin [Branch name]
 
 */
 
