@@ -4,12 +4,13 @@
 //Intakes blocks
 void intake(std::string correctColor, int time) {
     BottomBack.brake();
-    BottomOut.move(motorVelocity(70));
-    TopOut.move(motorVelocity(100));
-    TopBack.move(motorVelocity(60));
-    Mandibles.move(50);
-    colorSorting(correctColor);
-    pros::delay(time);
+    for (int i = 0; i < time; i++) {
+        BottomOut.move(motorVelocity(70));
+        TopOut.move(motorVelocity(100));
+        TopBack.move(motorVelocity(60));
+        Mandibles.move(50);
+        colorSorting(correctColor);
+    }
     stopAll();
 }
 
