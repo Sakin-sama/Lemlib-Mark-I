@@ -102,7 +102,7 @@ void competition_initialize() {
 		} else if (autonSelector == 4){
 			pros::lcd::print(5, "Right blue    ");
 		} else {
-			pros::lcd::print(5, "不死          ");
+			pros::lcd::print(5, "english          ");
 		}
 
 		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
