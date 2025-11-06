@@ -1,6 +1,6 @@
 #pragma once
 #include "globals.hpp"
-#include "auton_intake.hpp"
+#include "auton_functions.hpp"
 
 //Autons
     //Left field autonomous routes

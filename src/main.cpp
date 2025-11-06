@@ -167,7 +167,7 @@ void autonomous() {
 void opcontrol() {
 
 	while (true) {
-
+  
 		
 		// get left y and right y positions
 			int leftY = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
