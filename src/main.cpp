@@ -73,8 +73,6 @@ void initialize() {
             pros::delay(20);
         }
     });
-    
-    autonomous();
 }
 
 /**
@@ -109,7 +107,7 @@ void competition_initialize() {
 
 		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
 			if (autonSelector > 1) {
-				autonSelector -= 1;
+				autonSelector = autonSelector - 1;
 			} else {
 				autonSelector = 4;
 			}
@@ -119,7 +117,7 @@ void competition_initialize() {
 		}
 		if (master.get_digital_new_release(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
 			if (autonSelector < 4) {
-				autonSelector += 1;
+				autonSelector = autonSelector + 1;
 			} else {
 				autonSelector = 1;
 			}
@@ -127,7 +125,7 @@ void competition_initialize() {
 		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
 			autonSelected = true;
 		}
-		pros::delay(25);
+		pros::delay(100);
 	}
 }
 
@@ -171,8 +169,8 @@ void autonomous() {
  */
 void opcontrol() {
   //Temporary stuff
-    
-    
+    competition_initialize();
+    autonomous();
 
   //Permanent stuff
 	while (true) {
