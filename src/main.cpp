@@ -105,17 +105,14 @@ void competition_initialize() {
 			pros::lcd::print(5, "english          ");
 		}
 
-		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
 			if (autonSelector > 1) {
 				autonSelector = autonSelector - 1;
 			} else {
 				autonSelector = 4;
 			}
-      while (master.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-        pros::delay(20);
-      }
 		}
-		if (master.get_digital_new_release(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
 			if (autonSelector < 4) {
 				autonSelector = autonSelector + 1;
 			} else {
@@ -151,6 +148,7 @@ void autonomous() {
 		rightBlue();
 	} else {
 		pros::lcd::print(5, "No autonomous found     ");
+    pros::delay(1000);
 	}
 }
 
@@ -169,8 +167,8 @@ void autonomous() {
  */
 void opcontrol() {
   //Temporary stuff
-    competition_initialize();
-    autonomous();
+  autonSelector = 1;
+  autonomous();
 
   //Permanent stuff
 	while (true) {

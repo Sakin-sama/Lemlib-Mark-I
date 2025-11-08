@@ -11,12 +11,12 @@ And I measured these distances by eyeballing a png of the board setup
 std::string rightColor;
 
 void leftRed() {
-    //TESTING STUFF
+  chassis.setPose(128,-30,230);
     rightColor = "Red";
-    chassis.moveToPoint(-8,24,2000); //move to group of 3 reds
+    chassis.moveToPoint(-20,0,2000); //move to group of 3 reds
     intake(rightColor, 1000);
-    chassis.moveToPose(18,18,80, 2000); //move to center goal
-    bottomBlockExport(1000);
+    chassis.moveToPoint(0,28,2000); //move to center goal
+    topBlockExport(1000);
     chassis.moveToPose(-42,2,-135,2000); //pickup two lonely ahh reds
     intake(rightColor, 1000);
     chassis.moveToPose(-5,0,0,1000); //backup a lil bit bc boop
