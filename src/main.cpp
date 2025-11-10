@@ -168,13 +168,11 @@ void autonomous() {
  */
 void opcontrol() {
   //Temporary stuff
-  autonSelector = 1;
-  autonomous();
+    autonSelector = 1;
+    autonomous();
 
   //Permanent stuff
-	while (true) {
-  
-		
+	while (true) {		
 		// get left y and right y positions
 			int leftY = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
 			int rightX = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
