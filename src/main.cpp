@@ -73,6 +73,7 @@ void initialize() {
             pros::delay(20);
         }
     });
+    pros::delay(1000);
 }
 
 /**
