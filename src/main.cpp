@@ -103,18 +103,18 @@ void competition_initialize() {
 		} else if (autonSelector == 4){
 			pros::lcd::print(5, "Right blue    ");
 		} else {
-			pros::lcd::print(5, "english          ");
+			pros::lcd::print(5, "None          ");
 		}
 
 		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
 			if (autonSelector > 1) {
 				autonSelector = autonSelector - 1;
 			} else {
-				autonSelector = 4;
+				autonSelector = 5;
 			}
 		}
 		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-			if (autonSelector < 4) {
+			if (autonSelector < 5) {
 				autonSelector = autonSelector + 1;
 			} else {
 				autonSelector = 1;
@@ -168,8 +168,6 @@ void autonomous() {
  */
 void opcontrol() {
   //Temporary stuff
-    autonSelector = 1;
-    autonomous();
 
   //Permanent stuff
 	while (true) {		
