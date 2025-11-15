@@ -147,7 +147,9 @@ void autonomous() {
 		leftBlue();
 	} else if (autonSelector == 4) {
 		rightBlue();
-	} else {
+	} else if (autonSelector == 5) {
+    pros::lcd::print(5,"No auton used D:");
+  } else {
 		pros::lcd::print(5, "No autonomous found     ");
     pros::delay(1000);
 	}
