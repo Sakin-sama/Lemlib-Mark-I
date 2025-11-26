@@ -1,19 +1,12 @@
 #include "helpers.hpp"
+#include "pros/misc.h"
 
 int intakeMotorSetting = 0;
 int intakeMotorSettingLast = 0;
 
 //Takes a velocity percentage and outputs in the voltage format
-double motorVelocity(double givenVelocity) {
-  if (std::abs((givenVelocity * 127) / 100) < 127) {
-    return ((givenVelocity * 127) / 100);
-  } else {
-    if (givenVelocity > 0) {
-      return (127);
-    } else {
-      return (-127);
-    }
-  }
+double motorVelocity(int givenVelocity) {
+  return (std::min(((givenVelocity * 127) / 100), 100));
 }
 
 //Controls the individual intake functions and what they do
@@ -24,12 +17,11 @@ void intakeControls() {
     }
 
     if (intakeMotorSetting == 1) {
-        BottomBack.brake();
-        BottomOut.move(motorVelocity(70));
-        TopOut.move(motorVelocity(100));
-        TopBack.move(motorVelocity(60));
-        Mandibles.move(50);
-        colorSorting("Blue");
+      Outblock.retract();
+      Downblock.extend();
+      Bottom.move(motorVelocity(75));
+      Middle.move(motorVelocity(75));
+      Top.brake();
     }
 
     //Bottom block export
@@ -38,11 +30,11 @@ void intakeControls() {
     }
 
     if (intakeMotorSetting == 2) {
-        TopOut.brake();
-        TopBack.brake();
-        BottomOut.move(motorVelocity(-50));
-        BottomBack.move(motorVelocity(-100));
-        Mandibles.move(-50);
+      Outblock.retract();
+      Downblock.extend();
+      Bottom.move(motorVelocity(-75));
+      Middle.move(motorVelocity(-75));
+      Top.move(motorVelocity(-75));
     }
 
     //Middle block export
@@ -51,11 +43,11 @@ void intakeControls() {
     }
 
     if (intakeMotorSetting == 3 ) {
-        TopOut.brake();
-        Mandibles.brake();
-        BottomOut.move(motorVelocity(50));
-        BottomBack.move(motorVelocity(-100));
-        TopBack.move(motorVelocity(-60));
+      Outblock.extend();
+      Downblock.retract();
+      Bottom.move(motorVelocity(75));
+      Middle.move(motorVelocity(75));
+      Top.move(motorVelocity(-75));
     }
 
     //Top block export
@@ -64,40 +56,43 @@ void intakeControls() {
     }
 
     if (intakeMotorSetting == 4) {
-        Mandibles.brake();
-        BottomOut.move(motorVelocity(60));
-        TopOut.move(motorVelocity(-100));
-        BottomBack.move(motorVelocity(-100));
-        TopBack.move(motorVelocity(60));
+      Outblock.extend();
+      Downblock.retract();
+      Bottom.move(motorVelocity(75));
+      Middle.move(motorVelocity(75));
+      Top.move(motorVelocity(75));
     }
 
-    //Stops all intakes
-    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
+    //Reverse
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+        intakeMotorSettingLast = intakeMotorSetting;
         intakeMotorSetting = 5;
     }
 
     if (intakeMotorSetting == 5) {
-        Mandibles.brake();
-        BottomOut.brake();
-        TopOut.brake();
-        BottomBack.brake();
-        TopBack.brake();
+ 
+        pros::delay(400);
+        intakeMotorSetting = intakeMotorSettingLast;
     }
 
-//Reversi
-    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-        intakeMotorSettingLast = intakeMotorSetting;
-        intakeMotorSetting = 6;
+    //Stops middle motor
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+      intakeMotorSetting = 6;
     }
 
     if (intakeMotorSetting == 6) {
-        BottomBack.brake();
-        BottomOut.move(motorVelocity(-70));
-        TopOut.move(motorVelocity(-100));
-        TopBack.move(motorVelocity(-60));
-        Mandibles.move(-50);   
-        pros::delay(400);
-        intakeMotorSetting = intakeMotorSettingLast;
+      Middle.brake();
+    }
+
+    //Stops all intakes
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
+        intakeMotorSetting = 7;
+    }
+
+    if (intakeMotorSetting == 7) {
+      Bottom.brake();
+      Middle.brake();
+      Top.brake();
     }
 }
 
@@ -106,31 +101,25 @@ void colorSorting(std::string goodColor) {
     if (goodColor == "Red") {
         //Red = good
         if (BlockColorSensor.get_hue() >= 200 && BlockColorSensor.get_hue() <= 240) {
-            pros::delay(175);
-            TopBack.move(motorVelocity(-60));
-            pros::delay(200);
-            TopBack.move(motorVelocity(60));
+
         }
     } if (goodColor == "Blue") {
         //Blue = good
         if (BlockColorSensor.get_hue() >= 340 && BlockColorSensor.get_hue() <= 360) {
-            pros::delay(175);
-            TopBack.move(motorVelocity(-60));
-            pros::delay(200);
-            TopBack.move(motorVelocity(60));
+
         }
     }
 }
 
 //Controls the mandibles and their pneumatics
-void mandibleControls() {
+void plateControls() {
     if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
-        RightMandiblePnuematic.retract();
-        LeftMandiblePnuematic.retract();
+        RightPlateArm.retract();
+        LeftPlateArm.retract();
     }
 
     if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-        RightMandiblePnuematic.extend();
-        LeftMandiblePnuematic.extend();
+        RightPlateArm.extend();
+        LeftPlateArm.extend();
     }
 }

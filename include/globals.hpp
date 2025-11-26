@@ -10,22 +10,25 @@
 
 //Motors
     //Intake/Outake motors
-        extern pros::Motor LeftMandible; //5.5, needs limit
-        extern pros::Motor RightMandible; //5.5, needs limit
-        extern pros::Motor TopBack;
-        extern pros::Motor TopOut; //5.5, needs limit
-        extern pros::Motor BottomBack; //5.5, needs limit
-        extern pros::Motor BottomOut;
+        extern pros::Motor Bottom;
+        extern pros::Motor Middle;
+        extern pros::Motor Top;
     //Drivetrain motors
 				extern pros::Motor FrontLeftMotor;
+        extern pros::Motor MiddleLeftMotor;
 				extern pros::Motor BackLeftMotor;
 				extern pros::Motor FrontRightMotor;
+        extern pros::Motor MiddleRightMotor;
 				extern pros::Motor BackRightMotor;
 
 //Pneumatics
-    //"Mandibles"
-        extern pros::adi::Pneumatics LeftMandiblePnuematic;
-        extern pros::adi::Pneumatics RightMandiblePnuematic;
+    //"Plate"
+        extern pros::adi::Pneumatics LeftPlateArm;
+        extern pros::adi::Pneumatics RightPlateArm;
+    //"Outblock"
+        extern pros::adi::Pneumatics Outblock;
+    //"Downblock"
+        extern pros::adi::Pneumatics Downblock;
 
 //Sensors
     //Color sensors
@@ -38,7 +41,6 @@
 //Groups
     extern pros::MotorGroup LeftMotors; //left drivetrain
     extern pros::MotorGroup RightMotors; //right drivetrain
-    extern pros::MotorGroup Mandibles; //Should default to intake
 
 //Drivetrain
     extern lemlib::Drivetrain Drivetrain;

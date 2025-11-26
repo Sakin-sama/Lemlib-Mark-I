@@ -181,7 +181,7 @@ void opcontrol() {
 			chassis.arcade(leftY, rightX, false, 0.75);
 
 			intakeControls();
-    	mandibleControls();
+    	plateControls();
 			
 			// delay to save resources
 			pros::delay(25);

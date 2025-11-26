@@ -14,22 +14,25 @@ bool autonSelected = false;
 
 //Motors
     //Intake/Outake motors
-        pros::Motor LeftMandible(2, pros::v5::MotorGears::green); //5.5, needs limit
-        pros::Motor RightMandible(-9, pros::v5::MotorGears::green); //5.5, needs limit
-        pros::Motor TopBack(3, pros::v5::MotorGears::blue);
-        pros::Motor TopOut(8, pros::v5::MotorGears::green); //5.5, needs limit
-        pros::Motor BottomBack(21, pros::v5::MotorGears::green); //5.5, needs limit
-        pros::Motor BottomOut(10, pros::v5::MotorGears::blue);
+        pros::Motor Bottom(14);
+        pros::Motor Middle(1);
+        pros::Motor Top(2);
     //Drivetrain motors
-				pros::Motor FrontLeftMotor(-11, pros::v5::MotorGears::green);
-				pros::Motor BackLeftMotor(-12, pros::v5::MotorGears::green);
-				pros::Motor FrontRightMotor(19, pros::v5::MotorGears::green);
-				pros::Motor BackRightMotor(20, pros::v5::MotorGears::green);
+				pros::Motor FrontLeftMotor(-13, pros::v5::MotorGears::blue);
+        pros::Motor MiddleLeftMotor(-12, pros::v5::MotorGears::blue);
+				pros::Motor BackLeftMotor(-11, pros::v5::MotorGears::blue);
+				pros::Motor FrontRightMotor(18, pros::v5::MotorGears::blue);
+        pros::Motor MiddleRightMotor(19, pros::v5::MotorGears::blue);
+				pros::Motor BackRightMotor(20, pros::v5::MotorGears::blue);
 		
 //Pneumatics
-    //"Mandibles"
-        pros::adi::Pneumatics LeftMandiblePnuematic('A', false);
-        pros::adi::Pneumatics RightMandiblePnuematic('B', false);
+    //"Plate"
+        pros::adi::Pneumatics LeftPlateArm('F', false);
+        pros::adi::Pneumatics RightPlateArm('E', false);
+    //"Outblock"
+        pros::adi::Pneumatics Outblock('D', false);
+    //"Downblock"
+        pros::adi::Pneumatics Downblock('H', true);
 
 //Sensors - these are all defaults after the color sensor
     //Color sensors
@@ -57,9 +60,8 @@ bool autonSelected = false;
 
 
 //Groups
-				pros::MotorGroup LeftMotors({FrontLeftMotor.get_port(), BackLeftMotor.get_port()}); //left drivetrain
-				pros::MotorGroup RightMotors({FrontRightMotor.get_port(), BackRightMotor.get_port()}); //right drivetrain
-				pros::MotorGroup Mandibles({LeftMandible.get_port(), RightMandible.get_port()}); //Should default to intake
+				pros::MotorGroup LeftMotors({FrontLeftMotor.get_port(), MiddleLeftMotor.get_port(), BackLeftMotor.get_port()}); //left drivetrain
+				pros::MotorGroup RightMotors({FrontRightMotor.get_port(), MiddleRightMotor.get_port(), BackRightMotor.get_port()}); //right drivetrain
 
 //Drivetrain
     lemlib::Drivetrain Drivetrain(

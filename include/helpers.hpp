@@ -3,6 +3,6 @@
 
 //Functions
 double motorVelocity(double givenVelocity);
-void intakeControls();
 void colorSorting(std::string goodColor);
-void mandibleControls();
+void intakeControls();
+void plateControls();
