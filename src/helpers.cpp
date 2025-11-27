@@ -6,14 +6,14 @@ int intakeMotorSettingLast = 0;
 
 //Takes a velocity percentage and outputs in the voltage format
 double motorVelocity(int givenVelocity) {
-  return (std::min(((givenVelocity * 127) / 100), 100));
+  return (std::max(std::min(((givenVelocity * 127) / 100), 127), -127));
 }
 
 //Controls the individual intake functions and what they do
-void intakeControls() {
-    //Intakes blocks
+void motorControls() {
+  //Intakes blocks
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-        intakeMotorSetting = 1;
+      intakeMotorSetting = 1;
     }
 
     if (intakeMotorSetting == 1) {
@@ -24,9 +24,9 @@ void intakeControls() {
       Top.brake();
     }
 
-    //Bottom block export
+  //Bottom block export
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-        intakeMotorSetting = 2;
+      intakeMotorSetting = 2;
     }
 
     if (intakeMotorSetting == 2) {
@@ -37,9 +37,9 @@ void intakeControls() {
       Top.move(motorVelocity(-75));
     }
 
-    //Middle block export
+  //Middle block export
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-        intakeMotorSetting = 3;
+      intakeMotorSetting = 3;
     }
 
     if (intakeMotorSetting == 3 ) {
@@ -50,9 +50,9 @@ void intakeControls() {
       Top.move(motorVelocity(-75));
     }
 
-    //Top block export
+  //Top block export
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-        intakeMotorSetting = 4;
+      intakeMotorSetting = 4;
     }
 
     if (intakeMotorSetting == 4) {
@@ -63,19 +63,18 @@ void intakeControls() {
       Top.move(motorVelocity(75));
     }
 
-    //Reverse
+  //Reverse
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-        intakeMotorSettingLast = intakeMotorSetting;
-        intakeMotorSetting = 5;
+      intakeMotorSettingLast = intakeMotorSetting;
+      intakeMotorSetting = 5;
     }
 
     if (intakeMotorSetting == 5) {
- 
-        pros::delay(400);
-        intakeMotorSetting = intakeMotorSettingLast;
+      pros::delay(400);
+      intakeMotorSetting = intakeMotorSettingLast;
     }
 
-    //Stops middle motor
+  //Stops middle motor
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
       intakeMotorSetting = 6;
     }
@@ -84,9 +83,9 @@ void intakeControls() {
       Middle.brake();
     }
 
-    //Stops all intakes
+  //Stops all motors
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
-        intakeMotorSetting = 7;
+      intakeMotorSetting = 7;
     }
 
     if (intakeMotorSetting == 7) {
@@ -98,28 +97,29 @@ void intakeControls() {
 
 //Controls the color sorting method of the intake
 void colorSorting(std::string goodColor) {
-    if (goodColor == "Red") {
-        //Red = good
-        if (BlockColorSensor.get_hue() >= 200 && BlockColorSensor.get_hue() <= 240) {
+  if (goodColor == "Red") {
+    //Red = good
+      if (BlockColorSensor.get_hue() >= 200 && BlockColorSensor.get_hue() <= 240) {
 
-        }
-    } if (goodColor == "Blue") {
-        //Blue = good
-        if (BlockColorSensor.get_hue() >= 340 && BlockColorSensor.get_hue() <= 360) {
+      }
+  } 
+  if (goodColor == "Blue") {
+    //Blue = good
+      if (BlockColorSensor.get_hue() >= 340 && BlockColorSensor.get_hue() <= 360) {
 
-        }
-    }
+      }
+  }
 }
 
 //Controls the mandibles and their pneumatics
 void plateControls() {
-    if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
-        RightPlateArm.retract();
-        LeftPlateArm.retract();
-    }
+  if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
+    RightPlateArm.retract();
+    LeftPlateArm.retract();
+  }
 
-    if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-        RightPlateArm.extend();
-        LeftPlateArm.extend();
-    }
+  if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+    RightPlateArm.extend();
+    LeftPlateArm.extend();
+  }
 }

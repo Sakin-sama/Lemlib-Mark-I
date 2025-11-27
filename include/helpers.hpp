@@ -2,7 +2,7 @@
 #include "globals.hpp"
 
 //Functions
-double motorVelocity(double givenVelocity);
+double motorVelocity(int givenVelocity);
 void colorSorting(std::string goodColor);
-void intakeControls();
+void motorControls();
 void plateControls();

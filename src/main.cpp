@@ -180,7 +180,7 @@ void opcontrol() {
 			// move the robot
 			chassis.arcade(leftY, rightX, false, 0.75);
 
-			intakeControls();
+			motorControls();
     	plateControls();
 			
 			// delay to save resources
