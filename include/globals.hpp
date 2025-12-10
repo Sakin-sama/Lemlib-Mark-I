@@ -23,8 +23,10 @@
 
 //Pneumatics
     //"Plate"
-        extern pros::adi::Pneumatics LeftPlateArm;
-        extern pros::adi::Pneumatics RightPlateArm;
+        extern pros::adi::Pneumatics PlateArm;
+    //"Arm"
+        extern pros::adi::Pneumatics BottomArm;
+        extern pros::adi::Pneumatics TopArm;
     //"Outblock"
         extern pros::adi::Pneumatics Outblock;
     //"Downblock"
@@ -35,6 +37,9 @@
         extern pros::Optical BlockColorSensor;
     //Imu
         extern pros::Imu Imu;
+        extern pros::Rotation vertical_encoder;
+        extern lemlib::TrackingWheel vertical_tracking_wheel;
+
     //Odoms
         extern lemlib::OdomSensors Sensors;
 

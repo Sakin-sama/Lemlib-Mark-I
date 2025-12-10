@@ -19,8 +19,8 @@ void motorControls() {
     if (intakeMotorSetting == 1) {
       Outblock.retract();
       Downblock.extend();
-      Bottom.move(motorVelocity(75));
-      Middle.move(motorVelocity(75));
+      Bottom.move(motorVelocity(100));
+      Middle.move(motorVelocity(80));
       Top.brake();
     }
 
@@ -31,10 +31,10 @@ void motorControls() {
 
     if (intakeMotorSetting == 2) {
       Outblock.retract();
-      Downblock.extend();
-      Bottom.move(motorVelocity(-75));
-      Middle.move(motorVelocity(-75));
-      Top.move(motorVelocity(-75));
+      Downblock.retract();
+      Bottom.move(motorVelocity(-100));
+      Middle.move(motorVelocity(-80));
+      Top.move(motorVelocity(-65));
     }
 
   //Middle block export
@@ -45,9 +45,9 @@ void motorControls() {
     if (intakeMotorSetting == 3 ) {
       Outblock.extend();
       Downblock.retract();
-      Bottom.move(motorVelocity(75));
-      Middle.move(motorVelocity(75));
-      Top.move(motorVelocity(-75));
+      Bottom.move(motorVelocity(100));
+      Middle.move(motorVelocity(80));
+      Top.move(motorVelocity(-65));
     }
 
   //Top block export
@@ -58,9 +58,9 @@ void motorControls() {
     if (intakeMotorSetting == 4) {
       Outblock.extend();
       Downblock.retract();
-      Bottom.move(motorVelocity(75));
-      Middle.move(motorVelocity(75));
-      Top.move(motorVelocity(75));
+      Bottom.move(motorVelocity(100));
+      Middle.move(motorVelocity(80));
+      Top.move(motorVelocity(65));
     }
 
   //Reverse
@@ -93,6 +93,17 @@ void motorControls() {
       Middle.brake();
       Top.brake();
     }
+
+    //reversi
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
+      intakeMotorSetting = 8;
+    }
+
+    if (intakeMotorSetting == 8) {
+      Bottom.move(motorVelocity(-100));
+      Middle.move(motorVelocity(-80));
+      Top.move(motorVelocity(-65));
+    }
 }
 
 //Controls the color sorting method of the intake
@@ -112,14 +123,20 @@ void colorSorting(std::string goodColor) {
 }
 
 //Controls the mandibles and their pneumatics
-void plateControls() {
+void pneumaticControls() {
   if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
-    RightPlateArm.retract();
-    LeftPlateArm.retract();
+    PlateArm.retract();
   }
 
   if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-    RightPlateArm.extend();
-    LeftPlateArm.extend();
+    PlateArm.extend();
+  }
+
+  if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
+    TopArm.extend();
+  }
+
+  if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+    TopArm.retract();
   }
 }

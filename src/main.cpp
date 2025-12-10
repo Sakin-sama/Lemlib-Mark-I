@@ -93,38 +93,39 @@ void disabled() {}
  * starts.
  */
 void competition_initialize() {
-	while (autonSelected == false) {
-		if (autonSelector == 1) {
-			pros::lcd::print(5, "Left red      ");
-		} else if (autonSelector ==2 ) {
-			pros::lcd::print(5, "Right red     ");
-		} else if (autonSelector == 3) {
-			pros::lcd::print(5, "Left blue     ");
-		} else if (autonSelector == 4){
-			pros::lcd::print(5, "Right blue    ");
-		} else {
-			pros::lcd::print(5, "None          ");
-		}
+  
+	// while (autonSelected == false) {
+	// 	if (autonSelector == 1) {
+	// 		pros::lcd::print(5, "Left red      ");
+	// 	} else if (autonSelector ==2 ) {
+	// 		pros::lcd::print(5, "Right red     ");
+	// 	} else if (autonSelector == 3) {
+	// 		pros::lcd::print(5, "Left blue     ");
+	// 	} else if (autonSelector == 4){
+	// 		pros::lcd::print(5, "Right blue    ");
+	// 	} else {
+	// 		pros::lcd::print(5, "None          ");
+	// 	}
 
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-			if (autonSelector > 1) {
-				autonSelector = autonSelector - 1;
-			} else {
-				autonSelector = 5;
-			}
-		}
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-			if (autonSelector < 5) {
-				autonSelector = autonSelector + 1;
-			} else {
-				autonSelector = 1;
-			}
-		}
-		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
-			autonSelected = true;
-		}
-		pros::delay(100);
-	}
+	// 	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+	// 		if (autonSelector > 1) {
+	// 			autonSelector = autonSelector - 1;
+	// 		} else {
+	// 			autonSelector = 5;
+	// 		}
+	// 	}
+	// 	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+	// 		if (autonSelector < 5) {
+	// 			autonSelector = autonSelector + 1;
+	// 		} else {
+	// 			autonSelector = 1;
+	// 		}
+	// 	}
+	// 	if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+	// 		autonSelected = true;
+	// 	}
+	// 	pros::delay(100);
+	// }
 }
 
 /**
@@ -139,20 +140,8 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	if (autonSelector == 1) {
-		leftRed();
-	} else if (autonSelector == 2) {
-		rightRed();
-	} else if (autonSelector == 3) {
-		leftBlue();
-	} else if (autonSelector == 4) {
-		rightBlue();
-	} else if (autonSelector == 5) {
-    pros::lcd::print(5,"No auton used D:");
-  } else {
-		pros::lcd::print(5, "No autonomous found     ");
-    pros::delay(1000);
-	}
+  BottomArm.extend();
+  leftRed();
 }
 
 /**
@@ -169,21 +158,21 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-  //Temporary stuff
-
   //Permanent stuff
+  BottomArm.extend();
+
 	while (true) {		
 		// get left y and right y positions
 			int leftY = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-			int rightX = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
+			int rightX = -master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
 			// move the robot
-			chassis.arcade(leftY, rightX, false, 0.75);
+			chassis.arcade(leftY * 0.80, rightX * 0.80, false, 0.75);
 
 			motorControls();
-    	plateControls();
+    	pneumaticControls();
 			
 			// delay to save resources
 			pros::delay(25);
 	} //while true
-} //opcontrol  
+}

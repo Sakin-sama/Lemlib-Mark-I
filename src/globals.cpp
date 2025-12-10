@@ -16,7 +16,7 @@ bool autonSelected = false;
     //Intake/Outake motors
         pros::Motor Bottom(14);
         pros::Motor Middle(1);
-        pros::Motor Top(2);
+        pros::Motor Top(10);
     //Drivetrain motors
 				pros::Motor FrontLeftMotor(-13, pros::v5::MotorGears::blue);
         pros::Motor MiddleLeftMotor(-12, pros::v5::MotorGears::blue);
@@ -27,8 +27,10 @@ bool autonSelected = false;
 		
 //Pneumatics
     //"Plate"
-        pros::adi::Pneumatics LeftPlateArm('F', false);
-        pros::adi::Pneumatics RightPlateArm('E', false);
+        pros::adi::Pneumatics PlateArm('F', false);
+    //"Arm"
+        pros::adi::Pneumatics BottomArm('E', false);
+        pros::adi::Pneumatics TopArm('G', false);
     //"Outblock"
         pros::adi::Pneumatics Outblock('D', false);
     //"Downblock"
@@ -41,17 +43,18 @@ bool autonSelected = false;
         pros::Imu Imu(7);
 //Odom stuffs
     // horizontal tracking wheel encoder
-//        pros::Rotation horizontal_encoder(20);
+        pros::Rotation vertical_encoder(16);
     // vertical tracking wheel encoder
 //        pros::ADIEncoder vertical_encoder('C', 'D', true);
      // horizontal tracking wheel
 //        lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_encoder, lemlib::Omniwheel::NEW_275, -5.75);
     // vertical tracking wheel
-//        lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_275, -2.5);
+        lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, 0);
     
 
 // odometry settings
-    lemlib::OdomSensors Sensors(nullptr, // vertical tracking wheel 1, set to null
+    lemlib::OdomSensors Sensors(
+        nullptr, // vertical tracking wheel 1, set to null
         nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
         nullptr, // horizontal tracking wheel 1
         nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
@@ -60,8 +63,8 @@ bool autonSelected = false;
 
 
 //Groups
-				pros::MotorGroup LeftMotors({FrontLeftMotor.get_port(), MiddleLeftMotor.get_port(), BackLeftMotor.get_port()}); //left drivetrain
-				pros::MotorGroup RightMotors({FrontRightMotor.get_port(), MiddleRightMotor.get_port(), BackRightMotor.get_port()}); //right drivetrain
+				pros::MotorGroup RightMotors({FrontLeftMotor.get_port(), MiddleLeftMotor.get_port(), BackLeftMotor.get_port()}); //left drivetrain
+				pros::MotorGroup LeftMotors({FrontRightMotor.get_port(), MiddleRightMotor.get_port(), BackRightMotor.get_port()}); //right drivetrain
 
 //Drivetrain
     lemlib::Drivetrain Drivetrain(
@@ -75,27 +78,29 @@ bool autonSelected = false;
 
 //PID - these are the default constants, need to be callibrated
     // lateral PID controller
-        lemlib::ControllerSettings LateralController(10, // proportional gain (kP)
+        lemlib::ControllerSettings LateralController(
+            10, // proportional gain (kP)
             0, // integral gain (kI)
             3, // derivative gain (kD)
-            3, // anti windup
-            1, // small error range, in inches
-            100, // small error range timeout, in milliseconds
-            3, // large error range, in inches
-            500, // large error range timeout, in milliseconds
-            20 // maximum acceleration (slew)
+            0, // anti windup
+            0, // small error range, in inches
+            0, // small error range timeout, in milliseconds
+            0, // large error range, in inches
+            0, // large error range timeout, in milliseconds
+            65 // maximum acceleration (slew)
         );
 
     // angular PID controller
-        lemlib::ControllerSettings AngularController(2, // proportional gain (kP)
+        lemlib::ControllerSettings AngularController(
+            2, // proportional gain (kP)
             0, // integral gain (kI)
             10, // derivative gain (kD)
-            3, // anti windup
-            1, // small error range, in degrees
-            100, // small error range timeout, in milliseconds
-            3, // large error range, in degrees
-            500, // large error range timeout, in milliseconds
-            0 // maximum acceleration (slew)
+            0, // anti windup
+            0, // small error range, in degrees
+            0, // small error range timeout, in milliseconds
+            0, // large error range, in degrees
+            0, // large error range timeout, in milliseconds
+            20 // maximum acceleration (slew)
         );
 
 //Input Curves
