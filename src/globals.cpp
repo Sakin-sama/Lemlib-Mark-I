@@ -79,9 +79,9 @@ bool autonSelected = false;
 //PID - these are the default constants, need to be callibrated
     // lateral PID controller
         lemlib::ControllerSettings LateralController(
-            10, // proportional gain (kP)
+            15, // proportional gain (kP)
             0, // integral gain (kI)
-            3, // derivative gain (kD)
+            7, // derivative gain (kD)
             0, // anti windup
             0, // small error range, in inches
             0, // small error range timeout, in milliseconds
