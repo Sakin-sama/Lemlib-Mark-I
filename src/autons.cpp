@@ -5,15 +5,7 @@
 std::string rightColor;
 
 void leftRed() {
-  //Setup
-  PlateArm.retract();
-  Outblock.retract();
-  Downblock.extend();
-  chassis.setPose(-48,15,90);
-  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-  //Execution
-  intakeMotorSetting = 1;
-  motorControls();
+
 }
 
 void leftBlue() {

@@ -3,8 +3,8 @@
 //chassis and master (controller) are LOWERCASE
 
 float TRACK_WIDTH = 12.875; //inches
-int DRIVETRAIN_RPM = 400; //4:2 gear ratio, 200rpm gearbox (green)
-float HORIZONTAL_DRIFT = 2; //needs tuning
+int DRIVETRAIN_RPM = 450; //4:2 gear ratio, 200rpm gearbox (green)
+float HORIZONTAL_DRIFT = 8; //needs tuning
 
 int autonSelector = 1;
 bool autonSelected = false;
@@ -40,21 +40,21 @@ bool autonSelected = false;
     //Color sensors
         pros::Optical BlockColorSensor(1);
     //imu
-        pros::Imu Imu(7);
+        pros::Imu Imu(21);
 //Odom stuffs
     // horizontal tracking wheel encoder
-        pros::Rotation vertical_encoder(16);
+        pros::Rotation vertical_encoder(17);
     // vertical tracking wheel encoder
 //        pros::ADIEncoder vertical_encoder('C', 'D', true);
      // horizontal tracking wheel
 //        lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_encoder, lemlib::Omniwheel::NEW_275, -5.75);
     // vertical tracking wheel
-        lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, 0);
+        lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, -0.5);
     
 
 // odometry settings
     lemlib::OdomSensors Sensors(
-        nullptr, // vertical tracking wheel 1, set to null
+        &vertical_tracking_wheel, // vertical tracking wheel 1, set to null
         nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
         nullptr, // horizontal tracking wheel 1
         nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
@@ -79,9 +79,9 @@ bool autonSelected = false;
 //PID - these are the default constants, need to be callibrated
     // lateral PID controller
         lemlib::ControllerSettings LateralController(
-            15, // proportional gain (kP)
+            10, // proportional gain (kP)
             0, // integral gain (kI)
-            7, // derivative gain (kD)
+            3, // derivative gain (kD)
             0, // anti windup
             0, // small error range, in inches
             0, // small error range timeout, in milliseconds
