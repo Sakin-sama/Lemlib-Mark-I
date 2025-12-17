@@ -1,62 +1,45 @@
 #include "api.h"
 #include "lemlib/api.hpp"
 
-//Variables
-    extern int autonSelector;
-    extern bool autonSelected;
+//Controllers
+  extern pros::Controller master;
 
-//Controller
-    extern pros::Controller master;
+//Drivetrain Motors
+  extern pros::MotorGroup Right;
+  extern pros::MotorGroup Left;
 
 //Motors
-    //Intake/Outake motors
-        extern pros::Motor Bottom;
-        extern pros::Motor Middle;
-        extern pros::Motor Top;
-    //Drivetrain motors
-				extern pros::Motor FrontLeftMotor;
-        extern pros::Motor MiddleLeftMotor;
-				extern pros::Motor BackLeftMotor;
-				extern pros::Motor FrontRightMotor;
-        extern pros::Motor MiddleRightMotor;
-				extern pros::Motor BackRightMotor;
+  extern pros::Motor Bottom;
+  extern pros::Motor Middle;
+  extern pros::Motor Top;
 
 //Pneumatics
-    //"Plate"
-        extern pros::adi::Pneumatics PlateArm;
-    //"Arm"
-        extern pros::adi::Pneumatics BottomArm;
-        extern pros::adi::Pneumatics TopArm;
-    //"Outblock"
-        extern pros::adi::Pneumatics Outblock;
-    //"Downblock"
-        extern pros::adi::Pneumatics Downblock;
+  extern pros::adi::Pneumatics PlateArm;
+  extern pros::adi::Pneumatics BottomArm;
+  extern pros::adi::Pneumatics TopArm;
+  extern pros::adi::Pneumatics Outblock;
+  extern pros::adi::Pneumatics Downblock;
 
 //Sensors
-    //Color sensors
-        extern pros::Optical BlockColorSensor;
-    //Imu
-        extern pros::Imu Imu;
-        extern pros::Rotation vertical_encoder;
-        extern lemlib::TrackingWheel vertical_tracking_wheel;
+  extern pros::Imu Imu;
 
-    //Odoms
-        extern lemlib::OdomSensors Sensors;
+//Tracking Wheel
+  extern pros::Rotation vertical_encoder;
+  extern lemlib::TrackingWheel vertical_tracking_wheel;
 
-//Groups
-    extern pros::MotorGroup LeftMotors; //left drivetrain
-    extern pros::MotorGroup RightMotors; //right drivetrain
+//Odom
+  extern lemlib::OdomSensors Sensors;
 
 //Drivetrain
-    extern lemlib::Drivetrain Drivetrain;
+  extern lemlib::Drivetrain Drivetrain;
 
 //PID
-    extern lemlib::ControllerSettings LateralController;
-    extern lemlib::ControllerSettings AngularController;
+  extern lemlib::ControllerSettings LateralController;
+  extern lemlib::ControllerSettings AngularController;
 
 //Input Curves
-    extern lemlib::ExpoDriveCurve ThrottleCurve;
-    extern lemlib::ExpoDriveCurve SteerCurve;
+  extern lemlib::ExpoDriveCurve ThrottleCurve;
+  extern lemlib::ExpoDriveCurve SteerCurve;
 
 //Chassis
-    extern lemlib::Chassis chassis;
+  extern lemlib::Chassis chassis;

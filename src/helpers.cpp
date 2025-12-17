@@ -1,5 +1,4 @@
 #include "helpers.hpp"
-#include "pros/misc.h"
 
 int intakeMotorSetting = 0;
 int intakeMotorSettingLast = 0;
@@ -107,20 +106,20 @@ void motorControls() {
 }
 
 //Controls the color sorting method of the intake
-void colorSorting(std::string goodColor) {
-  if (goodColor == "Red") {
-    //Red = good
-      if (BlockColorSensor.get_hue() >= 200 && BlockColorSensor.get_hue() <= 240) {
+// void colorSorting(std::string goodColor) {
+//   if (goodColor == "Red") {
+//     //Red = good
+//       if (BlockColorSensor.get_hue() >= 200 && BlockColorSensor.get_hue() <= 240) {
 
-      }
-  } 
-  if (goodColor == "Blue") {
-    //Blue = good
-      if (BlockColorSensor.get_hue() >= 340 && BlockColorSensor.get_hue() <= 360) {
+//       }
+//   } 
+//   if (goodColor == "Blue") {
+//     //Blue = good
+//       if (BlockColorSensor.get_hue() >= 340 && BlockColorSensor.get_hue() <= 360) {
 
-      }
-  }
-}
+//       }
+//   }
+// }
 
 //Controls the mandibles and their pneumatics
 void pneumaticControls() {

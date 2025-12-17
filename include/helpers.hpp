@@ -3,7 +3,7 @@
 
 //Functions
 double motorVelocity(int givenVelocity);
-void colorSorting(std::string goodColor);
+// void colorSorting(std::string goodColor);
 void motorControls();
 void pneumaticControls();
 //Variables

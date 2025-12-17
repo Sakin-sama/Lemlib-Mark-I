@@ -35,7 +35,7 @@
 #define PROS_USE_LITERALS
 
 #include "globals.hpp"
-#include "helpers.hpp"
+#include "autons.hpp"
 #include "autons.hpp"
 
 /**
