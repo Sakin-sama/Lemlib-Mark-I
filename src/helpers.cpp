@@ -42,7 +42,7 @@ void motorControls() {
     }
 
     if (intakeMotorSetting == 3 ) {
-      Outblock.extend();
+      Outblock.retract();
       Downblock.retract();
       Bottom.move(motorVelocity(100));
       Middle.move(motorVelocity(80));
@@ -56,7 +56,7 @@ void motorControls() {
 
     if (intakeMotorSetting == 4) {
       Outblock.extend();
-      Downblock.retract();
+      Downblock.extend();
       Bottom.move(motorVelocity(100));
       Middle.move(motorVelocity(80));
       Top.move(motorVelocity(65));

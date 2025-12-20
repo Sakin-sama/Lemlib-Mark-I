@@ -1,4 +1,5 @@
 #include "main.h"
+#include "pros/motors.h"
 #include "pros/rtos.hpp"
 
 
@@ -62,17 +63,11 @@ void autonomous() {
  * Runs in driver control
  */
 void opcontrol() {
-		chassis.moveToPose(0,20,0,2000);
-        pros::delay(1000);
-        chassis.moveToPose(20,20,90,2000);
-        pros::delay(1000);
-        chassis.moveToPose(20,0,180,2000);
-        pros::delay(1000);
-        chassis.moveToPose(0,0,-90,2000);
-        pros::delay(1000);
-        chassis.moveToPose(0,0,0,1000);
+    //Temporary stuff
+    leftBlue();
     // controller
     // loop to continuously update motors
+    chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     while (true) {
         // get joystick positions
         int leftY = 0.8 * master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
