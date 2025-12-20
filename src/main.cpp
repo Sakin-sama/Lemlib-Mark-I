@@ -64,7 +64,7 @@ void autonomous() {
  */
 void opcontrol() {
     //Temporary stuff
-    leftBlue();
+    rightBlue();
     // controller
     // loop to continuously update motors
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
