@@ -141,7 +141,6 @@ void competition_initialize() {
  */
 void autonomous() {
   BottomArm.extend();
-  leftRed();
 }
 
 /**
@@ -158,9 +157,11 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
+  //Temporary stuff
+  BottomArm.extend();
+  leftBlue();
   //Permanent stuff
   BottomArm.extend();
-
 	while (true) {		
 		// get left y and right y positions
 			int leftY = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);

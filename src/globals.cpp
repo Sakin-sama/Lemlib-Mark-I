@@ -40,7 +40,7 @@ bool autonSelected = false;
     //Color sensors
         pros::Optical BlockColorSensor(1);
     //imu
-        pros::Imu Imu(7);
+        pros::Imu Imu(-21);
 //Odom stuffs
     // horizontal tracking wheel encoder
         pros::Rotation vertical_encoder(16);
