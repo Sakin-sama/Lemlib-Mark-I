@@ -53,11 +53,11 @@ void competition_initialize() {
 		} else if (autonSelector ==2 ) {
 			pros::lcd::print(5, "Half right     ");
 		} else if (autonSelector == 3) {
-			pros::lcd::print(5, "Full left     ");
+			pros::lcd::print(5, "Full left      ");
 		} else if (autonSelector == 4){
-			pros::lcd::print(5, "Full right    ");
+			pros::lcd::print(5, "Full right     ");
 		} else {
-			pros::lcd::print(5, "None          ");
+			pros::lcd::print(5, "None           ");
 		}
 
 		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
@@ -91,7 +91,17 @@ ASSET(example_txt); // '.' replaced with "_" to make c++ happy
  * This is an example autonomous routine which demonstrates a lot of the features LemLib has to offer
  */
 void autonomous() {
-    
+  if (autonSelector == 1) {
+    halfLeft();
+  } else if (autonSelector == 2) {
+    halfRight();
+  } else if (autonSelector == 3) {
+    fullLeft();
+  } else if (autonSelector == 4) {
+    fullRight();
+  } else {
+    pros::lcd::print(5, "No auton selected :'(        ");
+  }
 }
 
 /**
