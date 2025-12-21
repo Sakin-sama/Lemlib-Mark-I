@@ -1,6 +1,8 @@
 #include "main.h"
 #include "pros/motors.h"
 #include "pros/rtos.hpp"
+int autonSelector = 1;
+bool autonSelected = false;
 
 
 /**
@@ -45,7 +47,38 @@ void disabled() {}
  * runs after initialize if the robot is connected to field control
  */
 void competition_initialize() {
-  
+  while (autonSelected == false) {
+		if (autonSelector == 1) {
+			pros::lcd::print(5, "Half left      ");
+		} else if (autonSelector ==2 ) {
+			pros::lcd::print(5, "Half right     ");
+		} else if (autonSelector == 3) {
+			pros::lcd::print(5, "Full left     ");
+		} else if (autonSelector == 4){
+			pros::lcd::print(5, "Full right    ");
+		} else {
+			pros::lcd::print(5, "None          ");
+		}
+
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+			if (autonSelector > 1) {
+				autonSelector = autonSelector - 1;
+			} else {
+				autonSelector = 5;
+			}
+		}
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+			if (autonSelector < 5) {
+				autonSelector = autonSelector + 1;
+			} else {
+				autonSelector = 1;
+			}
+		}
+		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+			autonSelected = true;
+		}
+		pros::delay(100);
+	}
 }
 
 // get a path used for pure pursuit
