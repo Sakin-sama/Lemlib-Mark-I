@@ -39,13 +39,15 @@ void initialize() {
 /**
  * Runs while the robot is disabled
  */
-void disabled() {}
+void disabled() {
+  //autonSelector();
+}
 
 /**
  * runs after initialize if the robot is connected to field control
  */
 void competition_initialize() {
-  autonSelector();
+  //autonSelector();
 }
 
 // get a path used for pure pursuit
@@ -66,12 +68,13 @@ void autonomous() {
  */
 void opcontrol() {
   //Temporary code
-    autonSelector();
-    runSelectedAuton();
+
   // controller
   // loop to continuously update motors
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     while (true) {
+      motorControls();
+      pneumaticControls();
       // get joystick positions
       int leftY = 0.8 * master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
       int rightX = 0.8 * master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);

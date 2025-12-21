@@ -6,6 +6,8 @@
 
 //Auton selection/execution
   void autonSelector() {
+  selectedAuton = 1;
+  autonSelected = false;
   while (autonSelected == false) {
 		if (selectedAuton == 1) {
 			pros::lcd::print(5, "Half left      ");
@@ -19,7 +21,7 @@
 			pros::lcd::print(5, "None           ");
 		}
 
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
 			if (selectedAuton > 1) {
 				selectedAuton = selectedAuton - 1;
 			} else {
@@ -43,13 +45,17 @@
 void runSelectedAuton() {
     if (selectedAuton == 1) {
     halfLeft();
+    pros::lcd::print(5, "half left selected! :3      ");
   } else if (selectedAuton == 2) {
     halfRight();
+    pros::lcd::print(5, "half right selected! :3     ");
   } else if (selectedAuton == 3) {
     fullLeft();
+    pros::lcd::print(5, "full left selected! :3      ");
   } else if (selectedAuton == 4) {
     fullRight();
+    pros::lcd::print(5, "full right selected! :3     ");
   } else {
-    pros::lcd::print(5, "No auton selected :'(        ");
+    pros::lcd::print(5, "No auton selected :'(         ");
   }
 }
