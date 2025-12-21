@@ -1,8 +1,6 @@
 #include "main.h"
 #include "pros/motors.h"
 #include "pros/rtos.hpp"
-int autonSelector = 1;
-bool autonSelected = false;
 
 
 /**
@@ -47,38 +45,7 @@ void disabled() {}
  * runs after initialize if the robot is connected to field control
  */
 void competition_initialize() {
-  while (autonSelected == false) {
-		if (autonSelector == 1) {
-			pros::lcd::print(5, "Half left      ");
-		} else if (autonSelector ==2 ) {
-			pros::lcd::print(5, "Half right     ");
-		} else if (autonSelector == 3) {
-			pros::lcd::print(5, "Full left      ");
-		} else if (autonSelector == 4){
-			pros::lcd::print(5, "Full right     ");
-		} else {
-			pros::lcd::print(5, "None           ");
-		}
-
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-			if (autonSelector > 1) {
-				autonSelector = autonSelector - 1;
-			} else {
-				autonSelector = 5;
-			}
-		}
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-			if (autonSelector < 5) {
-				autonSelector = autonSelector + 1;
-			} else {
-				autonSelector = 1;
-			}
-		}
-		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
-			autonSelected = true;
-		}
-		pros::delay(100);
-	}
+  autonSelector();
 }
 
 // get a path used for pure pursuit
@@ -91,33 +58,26 @@ ASSET(example_txt); // '.' replaced with "_" to make c++ happy
  * This is an example autonomous routine which demonstrates a lot of the features LemLib has to offer
  */
 void autonomous() {
-  if (autonSelector == 1) {
-    halfLeft();
-  } else if (autonSelector == 2) {
-    halfRight();
-  } else if (autonSelector == 3) {
-    fullLeft();
-  } else if (autonSelector == 4) {
-    fullRight();
-  } else {
-    pros::lcd::print(5, "No auton selected :'(        ");
-  }
+  runSelectedAuton();
 }
 
 /**
  * Runs in driver control
  */
 void opcontrol() {
-    // controller
-    // loop to continuously update motors
+  //Temporary code
+    autonSelector();
+    runSelectedAuton();
+  // controller
+  // loop to continuously update motors
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     while (true) {
-        // get joystick positions
-        int leftY = 0.8 * master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-        int rightX = 0.8 * master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
-        // move the chassis with curvature drive
-        chassis.arcade(leftY, rightX);
-        // delay to save resources
-        pros::delay(10);
-    }
+      // get joystick positions
+      int leftY = 0.8 * master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+      int rightX = 0.8 * master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
+      // move the chassis with curvature drive
+      chassis.arcade(leftY, rightX);
+      // delay to save resources
+      pros::delay(10);
+  }
 }

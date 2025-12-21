@@ -35,8 +35,7 @@
 #define PROS_USE_LITERALS
 
 #include "globals.hpp"
-#include "autons.hpp"
-#include "autons.hpp"
+#include "helpers.hpp"
 
 /**
  * You should add more #includes here
