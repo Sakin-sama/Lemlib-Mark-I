@@ -1,9 +1,5 @@
 #include "globals.hpp"
 
-//Variables
-  int selectedAuton = 1;
-  bool autonSelected = false;
-
 //Controller
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 
