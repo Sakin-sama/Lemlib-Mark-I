@@ -5,11 +5,7 @@
 
 std::string rightColor;
 
-void leftRed() {
-
-}
-
-void leftBlue() {
+void halfLeft() {
   //Setup
   PlateArm.retract();
   Outblock.retract();
@@ -41,11 +37,7 @@ void leftBlue() {
   chassis.moveToPoint(-56,49, 1500);
 }
 
-void rightRed() {
-
-}
-
-void rightBlue() {
+void halfRight() {
   //Setup
   PlateArm.retract();
   Outblock.retract();
@@ -75,4 +67,28 @@ void rightBlue() {
   pros::delay(1000);
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
   chassis.moveToPoint(-56,-49, 1500);
+}
+
+void fullLeft() {
+  //Setup
+  PlateArm.retract();
+  Outblock.retract();
+  BottomArm.retract();
+  TopArm.retract();
+  Downblock.extend();
+  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+  chassis.setPose(-48,16,90);
+  //Execution
+}
+
+void fullRight() {
+  //Setup
+  PlateArm.retract();
+  Outblock.retract();
+  BottomArm.retract();
+  TopArm.retract();
+  Downblock.extend();
+  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+  chassis.setPose(-48,-16,90);
+  //Execution
 }

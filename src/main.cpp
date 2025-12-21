@@ -44,7 +44,9 @@ void disabled() {}
 /**
  * runs after initialize if the robot is connected to field control
  */
-void competition_initialize() {}
+void competition_initialize() {
+  
+}
 
 // get a path used for pure pursuit
 // this needs to be put outside a function
@@ -63,8 +65,6 @@ void autonomous() {
  * Runs in driver control
  */
 void opcontrol() {
-    //Temporary stuff
-    rightBlue();
     // controller
     // loop to continuously update motors
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
