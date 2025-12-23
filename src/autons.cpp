@@ -18,23 +18,23 @@ void halfLeft() {
   intakeMotorSetting = 1;
   motorControls();
   chassis.moveToPoint(-24,24, 2000);
-  chassis.moveToPose(-7,9,-45, 1500, {.forwards = false}, false);
+  chassis.turnToHeading(-45, 750);
+  chassis.moveToPose(-8,11,-45, 1500, {.forwards = false}, false);
   intakeMotorSetting = 3;
   motorControls();
-  pros::delay(1000);
+  pros::delay(2000);
   intakeMotorSetting = 1;
   motorControls();
+  chassis.moveToPoint(-40,50, 2250, {}, false);
   PlateArm.extend();
-  chassis.moveToPoint(-40,50, 2250);
   chassis.turnToHeading(-90,500);
-  chassis.moveToPoint(-56,49,1500, {}, false);
-  pros::delay(500);
-  chassis.moveToPoint(-20,49,1500, {.forwards = false}, false);
+  chassis.moveToPoint(-57,49,1500, {}, false);
+  chassis.moveToPoint(-20,50,1500, {.forwards = false}, false);
   intakeMotorSetting = 4;
   motorControls();
   pros::delay(1000);
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
-  chassis.moveToPoint(-56,49, 1500);
+  chassis.moveToPoint(-57,50, 1500);
 }
 
 void halfRight() {
@@ -50,7 +50,7 @@ void halfRight() {
   intakeMotorSetting = 1;
   motorControls();
   chassis.moveToPoint(-24,-24, 2000);
-  chassis.moveToPose(-7,-13,40, 1500, {}, false);
+  chassis.moveToPose(-8,-11,40, 1500, {}, false);
   intakeMotorSetting = 2;
   motorControls();
   pros::delay(2000);
@@ -59,14 +59,13 @@ void halfRight() {
   chassis.moveToPoint(-40,-50, 2250, {.forwards = false}, false);
   PlateArm.extend();
   chassis.turnToHeading(-90,500);
-  chassis.moveToPoint(-56,-49,1500, {}, false);
-  pros::delay(500);
+  chassis.moveToPoint(-58,-49,1500, {}, false);
   chassis.moveToPoint(-20,-49,1500, {.forwards = false}, false);
   intakeMotorSetting = 4;
   motorControls();
   pros::delay(1000);
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
-  chassis.moveToPoint(-56,-49, 1500);
+  chassis.moveToPoint(-58,-49, 1500);
 }
 
 void fullLeft() {

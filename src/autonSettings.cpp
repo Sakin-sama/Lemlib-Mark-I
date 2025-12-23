@@ -1,7 +1,7 @@
 #include "autonSettings.hpp"
 
 //variables
-  int selectedAuton = 1;
+  int selectedAuton = 2;
   bool autonSelected = false;
 
 //Auton selection/execution
@@ -44,18 +44,18 @@
 
 void runSelectedAuton() {
     if (selectedAuton == 1) {
-    halfLeft();
     pros::lcd::print(5, "half left selected! :3      ");
+    halfLeft();
   } else if (selectedAuton == 2) {
-    halfRight();
     pros::lcd::print(5, "half right selected! :3     ");
+    halfRight();
   } else if (selectedAuton == 3) {
-    fullLeft();
     pros::lcd::print(5, "full left selected! :3      ");
+    fullLeft();
   } else if (selectedAuton == 4) {
-    fullRight();
     pros::lcd::print(5, "full right selected! :3     ");
+    fullRight();
   } else {
-    pros::lcd::print(5, "No auton selected :'(         ");
+    pros::lcd::print(5, "No auton selected :'(       ");
   }
 }

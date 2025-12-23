@@ -6,7 +6,7 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 //Motors
   //Intake/Outake motors
     pros::Motor Bottom(14);
-    pros::Motor Middle(1);
+    pros::Motor Middle(16);
     pros::Motor Top(10);
   //Drivetrain
     pros::MotorGroup Right({18,19,20}, pros::v5::MotorGears::blue);
@@ -53,7 +53,7 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 //PID - these are the default constants, need to be callibrated
   // lateral PID controller
     lemlib::ControllerSettings LateralController(
-        13.55, // proportional gain (kP)
+        10.5, // proportional gain (kP)
         0, // integral gain (kI)
         55, // derivative gain (kD)
         0, // anti windup

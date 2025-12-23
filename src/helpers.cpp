@@ -46,8 +46,8 @@ void motorControls() {
       Outblock.retract();
       Downblock.retract();
       Bottom.move(motorVelocity(100));
-      Middle.move(motorVelocity(80));
-      Top.move(motorVelocity(-65));
+      Middle.move(motorVelocity(55));
+      Top.move(motorVelocity(-45));
     }
 
   //Top block export
