@@ -1,7 +1,7 @@
 #include "autonSettings.hpp"
 
 //variables
-  int selectedAuton = 2;
+  int selectedAuton = 3;
   bool autonSelected = false;
 
 //Auton selection/execution
