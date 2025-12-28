@@ -1,6 +1,5 @@
 #include "autons.hpp"
 #include "helpers.hpp"
-#include "pros/motors.h"
 
 
 std::string rightColor;
@@ -19,7 +18,7 @@ void halfLeft() {
   motorControls();
   chassis.moveToPoint(-24,24, 2000);
   chassis.turnToHeading(-45, 750);
-  chassis.moveToPose(-8,11,-45, 1500, {.forwards = false}, false);
+  chassis.moveToPose(-7,10.5,-45, 1500, {.forwards = false}, false); //Moves to middle center goal
   intakeMotorSetting = 3;
   motorControls();
   pros::delay(2000);
@@ -28,13 +27,12 @@ void halfLeft() {
   chassis.moveToPoint(-40,50, 2250, {}, false);
   PlateArm.extend();
   chassis.turnToHeading(-90,500);
-  chassis.moveToPoint(-57,49,1500, {}, false);
-  chassis.moveToPoint(-20,50,1500, {.forwards = false}, false);
+  chassis.moveToPoint(-60,49,1500, {}, false); //Moves into loader
+  chassis.moveToPoint(-20,50,1500, {.forwards = false}, false); //Moves to side goal
   intakeMotorSetting = 4;
   motorControls();
   pros::delay(1500);
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
-  chassis.moveToPoint(-50,50, 1500);
 }
 
 void halfRight() {
@@ -65,7 +63,6 @@ void halfRight() {
   motorControls();
   pros::delay(1500);
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
-  chassis.moveToPoint(-50,-49, 1500);
 }
 
 void fullLeft() {

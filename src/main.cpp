@@ -1,6 +1,4 @@
 #include "main.h"
-#include "pros/motors.h"
-#include "pros/rtos.hpp"
 
 
 /**
@@ -12,6 +10,7 @@
 void initialize() {
     pros::lcd::initialize(); // initialize brain screen
     chassis.calibrate(); // calibrate sensors
+
 
     // the default rate is 50. however, if you need to change the rate, you
     // can do the following.
@@ -69,14 +68,14 @@ void autonomous() {
 void opcontrol() {
   //Temporary code
 
-  // controller
-  // loop to continuously update motors
-    chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+  //Permanent code
+  BottomArm.extend();
+  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     while (true) {
       motorControls();
       pneumaticControls();
       // get joystick positions
-      int leftY = 0.8 * master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+      int leftY = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
       int rightX = 0.8 * master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
       // move the chassis with curvature drive
       chassis.arcade(leftY, rightX);
