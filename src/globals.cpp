@@ -13,11 +13,11 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Pneumatics
   //"Hatch"
-        pros::adi::Pneumatics hatch('F', false);
+        pros::adi::Pneumatics hatch('H', false);
     //"Lid"
-        pros::adi::Pneumatics lid('E', false);
+        pros::adi::Pneumatics lid('F', false);
     //"Fork"
-        pros::adi::Pneumatics fork('D', false);
+        pros::adi::Pneumatics fork('G', false);
 
 
 //Sensors

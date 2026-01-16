@@ -109,11 +109,5 @@ void pneumaticControls() {
   }
 
   //descore
-  // if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
-  //   TopArm.extend();
-  // }
-
-  // if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-  //   TopArm.retract();
-  // }
+0
 }
