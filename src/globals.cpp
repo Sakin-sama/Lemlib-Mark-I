@@ -5,30 +5,29 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Motors
   //Intake/Outake motors
-    pros::Motor Bottom(7, pros::v5:MotorGears::blue);
-    pros::Motor Top(6, pros::v5:MotorGears::blue);
+    pros::Motor bottom(7, pros::v5:MotorGears::blue);
+    pros::Motor top(6, pros::v5:MotorGears::blue);
   //Drivetrain
     pros::MotorGroup Left({1,2,3}, pros::v5::MotorGears::blue);
     pros::MotorGroup Right({-8,-9, -10}, pros::v5::MotorGears::blue);
 
 //Pneumatics
   //"Hatch"
-        pros::adi::Pneumatics PlateArm('F', false);
+        pros::adi::Pneumatics hatch('F', false);
     //"Lid"
-        pros::adi::Pneumatics BottomArm('E', false);
-        pros::adi::Pneumatics TopArm('G', false);
+        pros::adi::Pneumatics lid('E', false);
     //"Fork"
-        pros::adi::Pneumatics Outblock('D', false);
+        pros::adi::Pneumatics fork('D', false);
 
 
 //Sensors
-  pros::Imu Imu(5);
+  pros::Imu imu(5);
 
 //Distance Sensors
-  pros::Distance(11); //Left
-  pros::Distance(12); //Left
-  pros::Distance(19); //Left
-  pros::Distance(20); //Left
+  pros::Distance left(11);
+  pros::Distance right(12);
+  pros::Distance front(19);
+  pros::Distance back(20);
 
 //Tracking Wheel
   pros::Rotation vertical_encoder(4);
@@ -96,7 +95,7 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Chassis
   lemlib::Chassis chassis(
-    Drivetrain,
+    &Drivetrain,
     LateralController,
     AngularController,
     Sensors,

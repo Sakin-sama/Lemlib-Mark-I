@@ -17,11 +17,10 @@ void motorControls() {
     }
 
     if (intakeMotorSetting == 1) {
-      Outblock.retract();
-      Downblock.extend();
-      Bottom.move(motorVelocity(100));
-      Middle.move(motorVelocity(80));
-      Top.brake();
+      hatch.retract();
+      lid.retract();
+      bottom.move(motorVelocity(100));
+      top.move(motorVelocity(100));
     }
 
   //Bottom block export
@@ -30,11 +29,10 @@ void motorControls() {
     }
 
     if (intakeMotorSetting == 2) {
-      Outblock.retract();
-      Downblock.retract();
-      Bottom.move(motorVelocity(-100));
-      Middle.move(motorVelocity(-80));
-      Top.move(motorVelocity(-65));
+      hatch.retract();
+      lid.retract();
+      bottom.move(motorVelocity(-100));
+      top.move(motorVelocity(-100));
     }
 
   //Middle block export
@@ -43,11 +41,10 @@ void motorControls() {
     }
 
     if (intakeMotorSetting == 3 ) {
-      Outblock.retract();
-      Downblock.retract();
-      Bottom.move(motorVelocity(100));
-      Middle.move(motorVelocity(55));
-      Top.move(motorVelocity(-45));
+      hatch.extend();
+      lid.retract();
+      bottom.move(motorVelocity(100));
+      top.move(motorVelocity(100));
     }
 
   //Top block export
@@ -56,11 +53,10 @@ void motorControls() {
     }
 
     if (intakeMotorSetting == 4) {
-      Outblock.extend();
-      Downblock.extend();
-      Bottom.move(motorVelocity(100));
-      Middle.move(motorVelocity(80));
-      Top.move(motorVelocity(65));
+      hatch.retract();
+      lid.extend();
+      bottom.move(motorVelocity(100));
+      top.move(motorVelocity(100));
     }
 
   //Reverse
@@ -74,35 +70,16 @@ void motorControls() {
       intakeMotorSetting = intakeMotorSettingLast;
     }
 
-  //Stops middle motor
-    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
-      intakeMotorSetting = 6;
-    }
-
-    if (intakeMotorSetting == 6) {
-      Middle.brake();
-    }
-
   //Stops all motors
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
       intakeMotorSetting = 7;
     }
 
     if (intakeMotorSetting == 7) {
-      Bottom.brake();
-      Middle.brake();
-      Top.brake();
-    }
-
-    //reversi
-    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
-      intakeMotorSetting = 8;
-    }
-
-    if (intakeMotorSetting == 8) {
-      Bottom.move(motorVelocity(-100));
-      Middle.move(motorVelocity(-80));
-      Top.move(motorVelocity(-65));
+      hatch.retract();
+      lid.retract();
+      bottom.brake();
+      top.brake();
     }
 }
 
@@ -122,21 +99,21 @@ void motorControls() {
 //   }
 // }
 
-//Controls the mandibles and their pneumatics
 void pneumaticControls() {
+  //fork
   if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
-    PlateArm.retract();
+    fork.retract();
   }
-
   if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-    PlateArm.extend();
+    fork.extend();
   }
 
-  if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
-    TopArm.extend();
-  }
+  //descore
+  // if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
+  //   TopArm.extend();
+  // }
 
-  if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-    TopArm.retract();
-  }
+  // if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+  //   TopArm.retract();
+  // }
 }

@@ -5,20 +5,21 @@
   extern pros::Controller master;
 
 //Drivetrain Motors
-  extern pros::MotorGroup Left;
-  extern pros::MotorGroup Right;
+  extern pros::MotorGroup left;
+  extern pros::MotorGroup right;
 
 //Motors
-  extern pros::Motor Bottom;
-  extern pros::Motor Top;
+// Positive = intake, negative = outtake
+  extern pros::Motor bottom;
+  extern pros::Motor top; 
 
 //Pneumatics
-  extern pros::adi::Pneumatics Hatch;
-  extern pros::adi::Pneumatics Lid;
-  extern pros::adi::Pneumatics Fork;
+  extern pros::adi::Pneumatics hatch;
+  extern pros::adi::Pneumatics lid;
+  extern pros::adi::Pneumatics fork;
 
 //Sensors
-  extern pros::Imu Imu;
+  extern pros::Imu imu;
 
 //Tracking Wheel
   extern pros::Rotation vertical_encoder;
