@@ -5,30 +5,33 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Motors
   //Intake/Outake motors
-    pros::Motor Bottom(14);
-    pros::Motor Middle(16);
-    pros::Motor Top(10);
+    pros::Motor Bottom(7, pros::v5:MotorGears::blue);
+    pros::Motor Top(6, pros::v5:MotorGears::blue);
   //Drivetrain
-    pros::MotorGroup Right({18,19,20}, pros::v5::MotorGears::blue);
-    pros::MotorGroup Left({-11,-12,-13}, pros::v5::MotorGears::blue);
+    pros::MotorGroup Left({1,2,3}, pros::v5::MotorGears::blue);
+    pros::MotorGroup Right({-8,-9, -10}, pros::v5::MotorGears::blue);
 
 //Pneumatics
-  //"Plate"
+  //"Hatch"
         pros::adi::Pneumatics PlateArm('F', false);
-    //"Arm"
+    //"Lid"
         pros::adi::Pneumatics BottomArm('E', false);
         pros::adi::Pneumatics TopArm('G', false);
-    //"Outblock"
+    //"Fork"
         pros::adi::Pneumatics Outblock('D', false);
-    //"Downblock"
-        pros::adi::Pneumatics Downblock('H', true);
 
 
 //Sensors
-  pros::Imu Imu(21);
+  pros::Imu Imu(5);
+
+//Distance Sensors
+  pros::Distance(11); //Left
+  pros::Distance(12); //Left
+  pros::Distance(19); //Left
+  pros::Distance(20); //Left
 
 //Tracking Wheel
-  pros::Rotation vertical_encoder(17);
+  pros::Rotation vertical_encoder(4);
   lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, -0.5);
 
 // odometry settings

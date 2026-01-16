@@ -5,20 +5,17 @@
   extern pros::Controller master;
 
 //Drivetrain Motors
-  extern pros::MotorGroup Right;
   extern pros::MotorGroup Left;
+  extern pros::MotorGroup Right;
 
 //Motors
   extern pros::Motor Bottom;
-  extern pros::Motor Middle;
   extern pros::Motor Top;
 
 //Pneumatics
-  extern pros::adi::Pneumatics PlateArm;
-  extern pros::adi::Pneumatics BottomArm;
-  extern pros::adi::Pneumatics TopArm;
-  extern pros::adi::Pneumatics Outblock;
-  extern pros::adi::Pneumatics Downblock;
+  extern pros::adi::Pneumatics Hatch;
+  extern pros::adi::Pneumatics Lid;
+  extern pros::adi::Pneumatics Fork;
 
 //Sensors
   extern pros::Imu Imu;
