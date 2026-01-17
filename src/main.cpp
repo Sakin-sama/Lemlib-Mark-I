@@ -69,7 +69,7 @@ void opcontrol() {
   //Temporary code
 
   //Permanent code
-  BottomArm.extend();
+  // BottomArm.extend();
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     while (true) {
       motorControls();

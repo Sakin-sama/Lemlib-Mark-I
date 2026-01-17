@@ -6,11 +6,11 @@ std::string rightColor;
 
 void halfLeft() {
   //Setup
-  PlateArm.retract();
-  Outblock.retract();
-  BottomArm.retract();
-  TopArm.retract();
-  Downblock.extend();
+  // PlateArm.retract();
+  // Outblock.retract();
+  // BottomArm.retract();
+  // TopArm.retract();
+  // Downblock.extend();
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
   chassis.setPose(-48,16,90);
   //Execution
@@ -25,7 +25,7 @@ void halfLeft() {
   intakeMotorSetting = 1;
   motorControls();
   chassis.moveToPoint(-40,50, 2250, {}, false);
-  PlateArm.extend();
+  // PlateArm.extend();
   chassis.turnToHeading(-90,500);
   chassis.moveToPoint(-60,49,1500, {}, false); //Moves into loader
   chassis.moveToPoint(-20,50,1500, {.forwards = false}, false); //Moves to side goal
@@ -37,11 +37,11 @@ void halfLeft() {
 
 void halfRight() {
   //Setup
-  PlateArm.retract();
-  Outblock.retract();
-  BottomArm.retract();
-  TopArm.retract();
-  Downblock.extend();
+  // PlateArm.retract();
+  // Outblock.retract();
+  // BottomArm.retract();
+  // TopArm.retract();
+  // Downblock.extend();
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
   chassis.setPose(-48,-16,90);
   //Execution
@@ -55,7 +55,7 @@ void halfRight() {
   intakeMotorSetting = 1;
   motorControls();
   chassis.moveToPoint(-40,-50, 2250, {.forwards = false}, false);
-  PlateArm.extend();
+  // PlateArm.extend();
   chassis.turnToHeading(-90,500);
   chassis.moveToPoint(-58,-49,1500, {}, false);
   chassis.moveToPoint(-20,-49,1500, {.forwards = false}, false);
@@ -67,11 +67,11 @@ void halfRight() {
 
 void fullLeft() {
   //Setup
-  PlateArm.retract();
-  Outblock.retract();
-  BottomArm.retract();
-  TopArm.retract();
-  Downblock.extend();
+  // PlateArm.retract();
+  // Outblock.retract();
+  // BottomArm.retract();
+  // TopArm.retract();
+  // Downblock.extend();
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
   chassis.setPose(-48,16,90);
   //Execution
@@ -94,18 +94,18 @@ void fullLeft() {
   intakeMotorSetting = 1;
   motorControls();
   chassis.moveToPoint(-54,-24,500,{.forwards = false}, false);
-  PlateArm.extend();
+  // PlateArm.extend();
   chassis.moveToPoint(-50, -50, 1500);
   chassis.moveToPose(-56,-50,-85,750);
 }
 
 void fullRight() {
   //Setup
-  PlateArm.retract();
-  Outblock.retract();
-  BottomArm.retract();
-  TopArm.retract();
-  Downblock.extend();
+  // PlateArm.retract();
+  // Outblock.retract();
+  // BottomArm.retract();
+  // TopArm.retract();
+  // Downblock.extend();
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
   chassis.setPose(-48,-16,90);
   //Execution

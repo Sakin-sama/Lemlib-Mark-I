@@ -5,29 +5,29 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Motors
   //Intake/Outake motors
-    pros::Motor bottom(7, pros::v5:MotorGears::blue);
-    pros::Motor top(6, pros::v5:MotorGears::blue);
+    pros::Motor bottom(7, pros::v5::MotorGears::blue);
+    pros::Motor top(6, pros::v5::MotorGears::blue);
   //Drivetrain
-    pros::MotorGroup Left({1,2,3}, pros::v5::MotorGears::blue);
-    pros::MotorGroup Right({-8,-9, -10}, pros::v5::MotorGears::blue);
+    pros::MotorGroup leftDrive({-1,-2,-3}, pros::v5::MotorGears::blue);
+    pros::MotorGroup rightDrive({8,9, 10}, pros::v5::MotorGears::blue);
 
 //Pneumatics
   //"Hatch"
         pros::adi::Pneumatics hatch('H', false);
     //"Lid"
-        pros::adi::Pneumatics lid('F', false);
-    //"Fork"
-        pros::adi::Pneumatics fork('G', false);
+        pros::adi::Pneumatics lid('A', false);
+    //"Thingy"
+        pros::adi::Pneumatics thingy('G', false);
 
 
 //Sensors
   pros::Imu imu(5);
 
 //Distance Sensors
-  pros::Distance left(11);
-  pros::Distance right(12);
-  pros::Distance front(19);
-  pros::Distance back(20);
+  // pros::Distance left(11);
+  // pros::Distance right(12);
+  // pros::Distance front(19);
+  // pros::Distance back(20);
 
 //Tracking Wheel
   pros::Rotation vertical_encoder(4);
@@ -39,13 +39,13 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
     nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
     nullptr, // horizontal tracking wheel 1
     nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
-    &Imu // inertial sensor
+    &imu // inertial sensor
     ); 
 
 //Drivetrain
   lemlib::Drivetrain Drivetrain(
-    &Left,
-    &Right,
+    &leftDrive,
+    &rightDrive,
     12.875, //measure
     lemlib::Omniwheel::NEW_325, //idk if it's new or old 325
     450, //gear ratio  * gear cartridge (200)
@@ -95,7 +95,7 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Chassis
   lemlib::Chassis chassis(
-    &Drivetrain,
+    Drivetrain,
     LateralController,
     AngularController,
     Sensors,

@@ -15,11 +15,17 @@
 
 //Pneumatics
   extern pros::adi::Pneumatics hatch;
-  extern pros::adi::Pneumatics lid;
-  extern pros::adi::Pneumatics fork;
-
+  extern pros::adi::Pneumatics lid; //ALSO DESCORE
+  extern pros::adi::Pneumatics thingy;
+ 
 //Sensors
   extern pros::Imu imu;
+
+//Distance Sensors
+  // extern pros::Distance left(11);
+  // extern pros::Distance right(12);
+  // extern pros::Distance front(19);
+  // extern pros::Distance back(20);
 
 //Tracking Wheel
   extern pros::Rotation vertical_encoder;
