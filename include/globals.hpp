@@ -10,15 +10,12 @@
 
 //Motors
   extern pros::Motor Bottom;
-  extern pros::Motor Middle;
   extern pros::Motor Top;
 
 //Pneumatics
-  extern pros::adi::Pneumatics PlateArm;
-  extern pros::adi::Pneumatics BottomArm;
-  extern pros::adi::Pneumatics TopArm;
-  extern pros::adi::Pneumatics Outblock;
-  extern pros::adi::Pneumatics Downblock;
+  extern pros::adi::Pneumatics hatch;
+  extern pros::adi::Pneumatics lid;
+  extern pros::adi::Pneumatics plateArms;
 
 //Sensors
   extern pros::Imu Imu;
