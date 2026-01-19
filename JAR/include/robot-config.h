@@ -7,6 +7,10 @@ extern brain Brain;
 
 //Add your devices below, and don't forget to do the same in robot-config.cpp:
 
-
+extern motor bottom;
+extern motor top;
+extern pneumatics hatch;
+extern pneumatics lid;
+extern pneumatics plateArms;
 
 void  vexcodeInit( void );
