@@ -15,7 +15,7 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
   //"Hatch"
         pros::adi::Pneumatics hatch('H', false);
     //"Lid"
-        pros::adi::Pneumatics lid('F', false);
+        pros::adi::Pneumatics lid('F', true);
     //"Thingy"
         pros::adi::Pneumatics plateArms('G', false);
 
@@ -47,28 +47,28 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
   );
 
 //PID - these are the default constants, need to be callibrated
-  // lateral PID controller
-    lemlib::ControllerSettings LateralController(
-        10.5, // proportional gain (kP)
-        0, // integral gain (kI)
-        55, // derivative gain (kD)
-        0, // anti windup
-        0, // small error range, in inches
-        0, // small error range timeout, in milliseconds
-        0, // large error range, in inches
-        0, // large error range timeout, in milliseconds
-        0 // maximum acceleration (slew)
-    );
-
   // angular PID controller
     lemlib::ControllerSettings AngularController(
-        8, // proportional gain (kP)
+        2, // proportional gain (kP)
         0, // integral gain (kI)
-        58.5, // derivative gain (kD)
+        10, // derivative gain (kD)
         0, // anti windup
         0, // small error range, in degrees
         0, // small error range timeout, in milliseconds
         0, // large error range, in degrees
+        0, // large error range timeout, in milliseconds
+        0 // maximum acceleration (slew)
+    );
+
+  // lateral PID controller
+    lemlib::ControllerSettings LateralController(
+        7, // proportional gain (kP)
+        0, // integral gain (kI)
+        15, // derivative gain (kD)
+        0, // anti windup
+        0, // small error range, in inches
+        0, // small error range timeout, in milliseconds
+        0, // large error range, in inches
         0, // large error range timeout, in milliseconds
         0 // maximum acceleration (slew)
     );

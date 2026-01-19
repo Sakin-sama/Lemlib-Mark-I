@@ -31,12 +31,12 @@ void motorControls() {
       Top.move(motorVelocity(-100));
     }
 
-  //STop
+  //Stop
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
-      intakeMotorSetting = 7;
+      intakeMotorSetting = 3;
     }
 
-    if (intakeMotorSetting == 7) {
+    if (intakeMotorSetting == 3) {
       Bottom.brake();
       Top.brake();
     }

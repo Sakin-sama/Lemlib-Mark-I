@@ -6,33 +6,16 @@ std::string rightColor;
 
 void halfLeft() {
   //Setup
-  // PlateArm.retract();
-  // Outblock.retract();
-  // BottomArm.retract();
-  // TopArm.retract();
-  // Downblock.extend();
-  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-  chassis.setPose(-48,16,90);
+  plateArms.retract();
+  hatch.retract();
+  lid.extend();
+  chassis.setPose(-48,14,90);
   //Execution
-  intakeMotorSetting = 1;
-  motorControls();
-  chassis.moveToPoint(-24,24, 2000);
-  chassis.turnToHeading(-45, 750);
-  chassis.moveToPose(-7,10.5,-45, 1500, {.forwards = false}, false); //Moves to middle center goal
-  intakeMotorSetting = 3;
-  motorControls();
-  pros::delay(2000);
-  intakeMotorSetting = 1;
-  motorControls();
-  chassis.moveToPoint(-40,50, 2250, {}, false);
-  // PlateArm.extend();
-  chassis.turnToHeading(-90,500);
-  chassis.moveToPoint(-60,49,1500, {}, false); //Moves into loader
-  chassis.moveToPoint(-20,50,1500, {.forwards = false}, false); //Moves to side goal
-  intakeMotorSetting = 4;
-  motorControls();
-  pros::delay(1500);
-  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
+  Bottom.move(motorVelocity(100));
+  chassis.moveToPoint(-24,22, 5000);
+  pros::delay(1000);
+  plateArms.extend();
+  chassis.moveToPoint(-8.5, 8.5, 5000);
 }
 
 void halfRight() {
@@ -42,27 +25,7 @@ void halfRight() {
   // BottomArm.retract();
   // TopArm.retract();
   // Downblock.extend();
-  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-  chassis.setPose(-48,-16,90);
-  //Execution
-  intakeMotorSetting = 1;
-  motorControls();
-  chassis.moveToPoint(-24,-24, 2000);
-  chassis.moveToPose(-8,-11,40, 1500, {}, false);
-  intakeMotorSetting = 2;
-  motorControls();
-  pros::delay(2000);
-  intakeMotorSetting = 1;
-  motorControls();
-  chassis.moveToPoint(-40,-50, 2250, {.forwards = false}, false);
-  // PlateArm.extend();
-  chassis.turnToHeading(-90,500);
-  chassis.moveToPoint(-58,-49,1500, {}, false);
-  chassis.moveToPoint(-20,-49,1500, {.forwards = false}, false);
-  intakeMotorSetting = 4;
-  motorControls();
-  pros::delay(1500);
-  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
+
 }
 
 void fullLeft() {
@@ -72,31 +35,7 @@ void fullLeft() {
   // BottomArm.retract();
   // TopArm.retract();
   // Downblock.extend();
-  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-  chassis.setPose(-48,16,90);
-  //Execution
-  intakeMotorSetting = 1;
-  motorControls();
-  chassis.moveToPoint(-24,24, 1250);
-  chassis.turnToHeading(-45, 750);
-  chassis.moveToPose(-8,11,-45, 1500, {.forwards = false}, false);
-  intakeMotorSetting = 3;
-  motorControls();
-  pros::delay(750);
-  intakeMotorSetting = 1;
-  motorControls();
-  chassis.moveToPoint(-18, 18, 500);
-  chassis.moveToPose(-18, -27, -180, 1750);
-  chassis.moveToPose(-6, -15, 40, 2000, {}, false);
-  intakeMotorSetting = 2;
-  motorControls();
-  pros::delay(1000);
-  intakeMotorSetting = 1;
-  motorControls();
-  chassis.moveToPoint(-54,-24,500,{.forwards = false}, false);
-  // PlateArm.extend();
-  chassis.moveToPoint(-50, -50, 1500);
-  chassis.moveToPose(-56,-50,-85,750);
+
 }
 
 void fullRight() {
@@ -106,17 +45,30 @@ void fullRight() {
   // BottomArm.retract();
   // TopArm.retract();
   // Downblock.extend();
-  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-  chassis.setPose(-48,-16,90);
-  //Execution
-  intakeMotorSetting = 1;
-  motorControls();
-  chassis.moveToPoint(-24,-24, 2000);
-  chassis.moveToPose(-8,-11,40, 1500, {}, false);
-  intakeMotorSetting = 2;
-  motorControls();
-  pros::delay(2000);
-  intakeMotorSetting = 1;
-  motorControls();
 
+}
+
+void testingPID() {
+  //Setup
+  // PlateArm.retract();
+  // Outblock.retract();
+  // BottomArm.retract();
+  // TopArm.retract();
+  // Downblock.extend();
+  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+  chassis.setPose(0,0,0);
+  //Execution
+    //Angular PID Test
+      // chassis.turnToHeading(90, 5000);
+      // chassis.turnToHeading(180, 5000);
+      // chassis.turnToHeading(270, 5000);
+      // chassis.turnToHeading(360, 5000);
+    //Lateral PID Test
+      //chassis.moveToPoint(0,24,5000);
+      //chassis.moveToPoint(0,0, 5000, {.forwards = false});
+    //Full PID Test
+      // chassis.moveToPoint(24,0,5000);
+      // chassis.moveToPoint(24,24,5000);
+      // chassis.moveToPoint(0,24,5000);
+      // chassis.moveToPoint(0,0,5000);
 }

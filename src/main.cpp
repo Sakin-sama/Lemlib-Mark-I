@@ -67,7 +67,7 @@ void autonomous() {
  */
 void opcontrol() {
   //Temporary code
-
+  halfLeft();
   //Permanent code
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     while (true) {
