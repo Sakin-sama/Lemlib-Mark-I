@@ -70,7 +70,7 @@ void opcontrol() {
 
   //Permanent code
   // BottomArm.extend();
-  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+    chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
     while (true) {
       motorControls();
       pneumaticControls();

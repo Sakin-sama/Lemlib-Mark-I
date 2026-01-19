@@ -16,7 +16,7 @@
 //Pneumatics
   extern pros::adi::Pneumatics hatch;
   extern pros::adi::Pneumatics lid; //ALSO DESCORE
-  extern pros::adi::Pneumatics thingy;
+  extern pros::adi::Pneumatics plateArms;
  
 //Sensors
   extern pros::Imu imu;

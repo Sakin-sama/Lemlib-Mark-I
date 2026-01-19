@@ -6,33 +6,11 @@ std::string rightColor;
 
 void halfLeft() {
   //Setup
-  // PlateArm.retract();
-  // Outblock.retract();
-  // BottomArm.retract();
-  // TopArm.retract();
-  // Downblock.extend();
-  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-  chassis.setPose(-48,16,90);
+    hatch.retract();
+    plateArms.retract();
+    lid.retract();
+    chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
   //Execution
-  intakeMotorSetting = 1;
-  motorControls();
-  chassis.moveToPoint(-24,24, 2000);
-  chassis.turnToHeading(-45, 750);
-  chassis.moveToPose(-7,10.5,-45, 1500, {.forwards = false}, false); //Moves to middle center goal
-  intakeMotorSetting = 3;
-  motorControls();
-  pros::delay(2000);
-  intakeMotorSetting = 1;
-  motorControls();
-  chassis.moveToPoint(-40,50, 2250, {}, false);
-  // PlateArm.extend();
-  chassis.turnToHeading(-90,500);
-  chassis.moveToPoint(-60,49,1500, {}, false); //Moves into loader
-  chassis.moveToPoint(-20,50,1500, {.forwards = false}, false); //Moves to side goal
-  intakeMotorSetting = 4;
-  motorControls();
-  pros::delay(1500);
-  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_COAST);
 }
 
 void halfRight() {

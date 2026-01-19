@@ -15,9 +15,9 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
   //"Hatch"
         pros::adi::Pneumatics hatch('H', false);
     //"Lid"
-        pros::adi::Pneumatics lid('A', false);
+        pros::adi::Pneumatics lid('F', false);
     //"Thingy"
-        pros::adi::Pneumatics thingy('G', false);
+        pros::adi::Pneumatics plateArms('G', false);
 
 
 //Sensors
@@ -25,7 +25,7 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Distance Sensors
   // pros::Distance left(11);
-  // pros::Distance right(12);
+  // pros::Distance right(20);
   // pros::Distance front(19);
   // pros::Distance back(20);
 

@@ -17,7 +17,6 @@ void motorControls() {
     }
 
     if (intakeMotorSetting == 1) {
-      hatch.retract();
       bottom.move(motorVelocity(100));
       top.move(motorVelocity(100));
     }
@@ -28,7 +27,6 @@ void motorControls() {
     }
 
     if (intakeMotorSetting == 2) {
-      hatch.retract();
       bottom.move(motorVelocity(-100));
       top.move(motorVelocity(-100));
     }
@@ -39,7 +37,6 @@ void motorControls() {
     }
 
     if (intakeMotorSetting == 7) {
-      hatch.retract();
       bottom.brake();
       top.brake();
     }
@@ -49,10 +46,10 @@ void motorControls() {
 void pneumaticControls() {
   //Thingy
   if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
-    thingy.retract();
+    plateArms.retract();
   }
   if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-    thingy.extend();
+    plateArms.extend();
   }
 
   //Lid / Descore
