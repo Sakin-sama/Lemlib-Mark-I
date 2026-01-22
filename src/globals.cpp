@@ -1,4 +1,5 @@
 #include "globals.hpp"
+#include "pros/distance.hpp"
 
 //Controller
 pros::Controller master(pros::E_CONTROLLER_MASTER);
@@ -22,12 +23,14 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Sensors
   pros::Imu Imu(5);
+  pros::Distance left(11);
+  pros::Distance right(20);
 
 //Tracking Wheel
   pros::Rotation vertical_encoder(-4);
   lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, -0.75);
 
-// odometry settings
+//Odometry Settings
   lemlib::OdomSensors Sensors(
     &vertical_tracking_wheel, // vertical tracking wheel 1, set to null
     nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs

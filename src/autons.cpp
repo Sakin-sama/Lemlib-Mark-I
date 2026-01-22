@@ -1,6 +1,8 @@
 #include "autons.hpp"
 #include "helpers.hpp"
+#include "pros/motors.h"
 
+ASSET(redleft_txt);
 
 std::string rightColor;
 
@@ -9,23 +11,60 @@ void halfLeft() {
   plateArms.retract();
   hatch.retract();
   lid.extend();
+  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
   chassis.setPose(-48,14,90);
   //Execution
   Bottom.move(motorVelocity(100));
-  chassis.moveToPoint(-24,22, 5000);
+  Top.move(motorVelocity(-100));
+  motorControls();
+  chassis.moveToPoint(-23,23, 1500);
   pros::delay(1000);
   plateArms.extend();
-  chassis.moveToPoint(-8.5, 8.5, 5000);
+  chassis.turnToHeading(133,1000);
+  chassis.moveToPoint(-10, 13.5, 4000);
+  pros::delay(1000);
+  Top.move(motorVelocity(100));
+  plateArms.retract();
+  hatch.extend();
+  pros::delay(3000);
+  chassis.moveToPoint(-48, 50, 500, {.forwards = false});
+  chassis.turnToHeading(325, 750);
+  hatch.retract();
+  chassis.moveToPoint(-48, 50, 1000, {}, false);
+  plateArms.extend();
+  chassis.turnToHeading(-92,750);
+  chassis.moveToPoint(-60, 48, 1500);
+  chassis.moveToPoint(-24, 48, 2000, {.forwards = false}, false);
+  lid.retract();
 }
 
 void halfRight() {
   //Setup
-  // PlateArm.retract();
-  // Outblock.retract();
-  // BottomArm.retract();
-  // TopArm.retract();
-  // Downblock.extend();
-
+  plateArms.retract();
+  hatch.retract();
+  lid.extend();
+  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+  chassis.setPose(-48,-14,90);
+  //Execution
+  Bottom.move(motorVelocity(100));
+  Top.move(motorVelocity(-100));
+  motorControls();
+  chassis.moveToPoint(-21,-24, 1500);
+  pros::delay(1000);
+  chassis.turnToHeading(50,1000);
+  chassis.moveToPoint(-9, -12.5, 4000);
+  pros::delay(1500);
+  Bottom.move(motorVelocity(-100));
+  pros::delay(3000 );
+  Bottom.move(motorVelocity(100));
+  chassis.moveToPoint(-48, -50, 500, {.forwards = false});
+  chassis.turnToHeading(-136, 750);
+  chassis.moveToPoint(-48, -44, 1000, {}, false);
+  // plateArms.extend();
+  // chassis.turnToHeading(-86,750);
+  // chassis.moveToPoint(-60, -48, 1500);
+  // chassis.moveToPoint(-24, -48, 2000, {.forwards = false}, false);
+  lid.retract();
 }
 
 void fullLeft() {

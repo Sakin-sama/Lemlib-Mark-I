@@ -67,14 +67,15 @@ void autonomous() {
  */
 void opcontrol() {
   //Temporary code
-  halfLeft();
+  //chassis.setPose(-48,-14,90);
+  halfRight();
   //Permanent code
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     while (true) {
       motorControls();
       pneumaticControls();
       // get joystick positions
-      int leftY = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+      int leftY = 0.9 * master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
       int rightX = 0.8 * master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
       // move the chassis with curvature drive
       chassis.arcade(leftY, rightX);

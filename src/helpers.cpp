@@ -1,4 +1,5 @@
 #include "helpers.hpp"
+#include "pros/misc.h"
 
 //Variables
 int intakeMotorSetting = 0;
@@ -39,6 +40,22 @@ void motorControls() {
     if (intakeMotorSetting == 3) {
       Bottom.brake();
       Top.brake();
+    }
+    
+    //Stop Top
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+      intakeMotorSetting = 4;
+    }
+    if (intakeMotorSetting == 4) {
+      Top.brake();
+    }
+
+    //Stop Bottom
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
+      intakeMotorSetting = 5;
+    }
+    if (intakeMotorSetting == 5) {
+      Bottom.brake();
     }
   }
 

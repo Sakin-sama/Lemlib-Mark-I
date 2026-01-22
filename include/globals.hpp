@@ -19,6 +19,8 @@
 
 //Sensors
   extern pros::Imu Imu;
+  extern pros::Distance left;
+  extern pros::Distance right;
 
 //Tracking Wheel
   extern pros::Rotation vertical_encoder;
