@@ -50,7 +50,7 @@ void halfRight() {
   Bottom.move(motorVelocity(100));
   Top.move(motorVelocity(-100));
   motorControls();
-  chassis.moveToPoint(-21,-24, 1500);
+  chassis.moveToPoint(-22,-26, 1500);
   pros::delay(750);
   plateArms.extend();
   chassis.turnToHeading(50,1000, {}, false);
@@ -63,13 +63,13 @@ void halfRight() {
   Top.move(motorVelocity(100));
   chassis.moveToPoint(-48, -50, 500, {.forwards = false});
   chassis.turnToHeading(-136, 750);
-  chassis.moveToPoint(-48, -46, 1000, {}, false);
+  chassis.moveToPoint(-48, -45, 1000, {}, false);
   plateArms.extend();
   chassis.turnToHeading(-86,750);
-  chassis.moveToPoint(-60, -47, 1000);
-  chassis.moveToPoint(-55, -47, 1000, {.forwards = false});
-  chassis.moveToPoint(-60,-47, 1000);
-  chassis.moveToPoint(0, -45, 5000, {.forwards = false});
+  chassis.moveToPoint(-60, -46, 1000);
+  chassis.moveToPoint(-52.5, -46, 1000, {.forwards = false});
+  chassis.moveToPoint(-60,-46, 1000);
+  chassis.moveToPoint(-20, -47.5, 5000, {.forwards = false});
   pros::delay(1750);
   lid.retract();
 }
