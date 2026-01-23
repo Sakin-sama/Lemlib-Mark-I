@@ -17,7 +17,7 @@ void halfLeft() {
   Bottom.move(motorVelocity(100));
   Top.move(motorVelocity(-100));
   motorControls();
-  chassis.moveToPoint(-23,23, 1500);
+  chassis.moveToPoint(-22,26, 1500);
   pros::delay(1000);
   plateArms.extend();
   chassis.turnToHeading(133,1000);
@@ -33,8 +33,9 @@ void halfLeft() {
   chassis.moveToPoint(-48, 50, 1000, {}, false);
   plateArms.extend();
   chassis.turnToHeading(-92,750);
-  chassis.moveToPoint(-60, 48, 1500);
-  chassis.moveToPoint(-24, 48, 2000, {.forwards = false}, false);
+  chassis.moveToPoint(-62, 48, 1500);
+  chassis.moveToPoint(-18, 48, 5000, {.forwards = false});
+  pros::delay(1750);
   lid.retract();
 }
 
@@ -50,20 +51,26 @@ void halfRight() {
   Top.move(motorVelocity(-100));
   motorControls();
   chassis.moveToPoint(-21,-24, 1500);
-  pros::delay(1000);
-  chassis.turnToHeading(50,1000);
+  pros::delay(750);
+  plateArms.extend();
+  chassis.turnToHeading(50,1000, {}, false);
+  plateArms.retract();
   chassis.moveToPoint(-9, -12.5, 4000);
   pros::delay(1500);
   Bottom.move(motorVelocity(-100));
-  pros::delay(3000 );
+  pros::delay(2500);
   Bottom.move(motorVelocity(100));
+  Top.move(motorVelocity(100));
   chassis.moveToPoint(-48, -50, 500, {.forwards = false});
   chassis.turnToHeading(-136, 750);
-  chassis.moveToPoint(-48, -44, 1000, {}, false);
-  // plateArms.extend();
-  // chassis.turnToHeading(-86,750);
-  // chassis.moveToPoint(-60, -48, 1500);
-  // chassis.moveToPoint(-24, -48, 2000, {.forwards = false}, false);
+  chassis.moveToPoint(-48, -46, 1000, {}, false);
+  plateArms.extend();
+  chassis.turnToHeading(-86,750);
+  chassis.moveToPoint(-60, -47, 1000);
+  chassis.moveToPoint(-55, -47, 1000, {.forwards = false});
+  chassis.moveToPoint(-60,-47, 1000);
+  chassis.moveToPoint(0, -45, 5000, {.forwards = false});
+  pros::delay(1750);
   lid.retract();
 }
 
