@@ -1,5 +1,4 @@
 #include "globals.hpp"
-#include "pros/distance.hpp"
 
 //Controller
 pros::Controller master(pros::E_CONTROLLER_MASTER);
@@ -16,7 +15,7 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
   //"Hatch"
         pros::adi::Pneumatics hatch('H', false);
     //"Lid"
-        pros::adi::Pneumatics lid('F', true);
+        pros::adi::Pneumatics lid('F', false);
     //"Thingy"
         pros::adi::Pneumatics plateArms('G', false);
 

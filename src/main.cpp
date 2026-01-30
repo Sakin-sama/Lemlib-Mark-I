@@ -59,7 +59,6 @@ ASSET(example_txt); // '.' replaced with "_" to make c++ happy
  * This is an example autonomous routine which demonstrates a lot of the features LemLib has to offer
  */
 void autonomous() {
-  halfRight();
   //runSelectedAuton();
 }
 
@@ -67,16 +66,17 @@ void autonomous() {
  * Runs in driver control
  */
 void opcontrol() {
+  lid.retract();
   //Temporary code
-  // halfRight();
+  fullRight();
   //Permanent code
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     while (true) {
       motorControls();
       pneumaticControls();
       // get joystick positions
-      int leftY = 0.9 * master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-      int rightX = 0.7 * master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
+      int leftY = 0.85 * master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+      int rightX = 0.85 * master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
       // move the chassis with curvature drive
       chassis.arcade(leftY, rightX);
       // delay to save resources

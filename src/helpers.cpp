@@ -1,5 +1,4 @@
 #include "helpers.hpp"
-#include "pros/misc.h"
 
 //Variables
 int intakeMotorSetting = 0;
