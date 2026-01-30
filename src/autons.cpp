@@ -128,9 +128,9 @@ void fullRight() {
     //Second matchload
       plateArms.extend();
       chassis.moveToPose(55.5, -52, 90, 1500);
-      chassis.moveToPoint(70, -52, 2000);
-      chassis.moveToPoint(57.5, -52, 1500, {.forwards = false});
-      chassis.moveToPoint(70, -52, 2500);
+      chassis.moveToPoint(65, -52, 2000);
+      chassis.moveToPoint(57, -52, 1500, {.forwards = false});
+      chassis.moveToPoint(65, -52, 2500);
     //Scores second matchload
       chassis.moveToPoint(0, -51.5, 3000, {.forwards = false});
       pros::delay(1750);
@@ -156,8 +156,8 @@ void fullRight() {
       chassis.moveToPoint(-62, -37, 5000, {.maxSpeed = 75});
       chassis.turnToHeading(-25, 1500);
       chassis.moveToPoint(-68, -10, 1500, {.minSpeed = 127});
-      pros::delay(500);
-      chassis.moveToPoint(-68, -100, 500, {.forwards = false, .minSpeed = 127});
+      // pros::delay(500);
+      // chassis.moveToPoint(-68, -100, 500, {.forwards = false, .minSpeed = 127});
 
 }
 
