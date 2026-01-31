@@ -90,10 +90,10 @@ void fullRight() {
     //First matchload
       Bottom.move(motorVelocity(100));
       Top.move(motorVelocity(100));
-      chassis.moveToPose(-47, -48.5, 180, 2000);
-      chassis.turnToHeading(-90, 1000);
+      chassis.moveToPose(-47, -48.5, 180, 1750);
+      chassis.turnToHeading(-90, 750);
       plateArms.extend();
-      chassis.moveToPose(-52,-48.5,-90,2000);
+      chassis.moveToPose(-52,-48.5,-90,1500);
       chassis.moveToPoint(-60, -48.5, 2000);
       chassis.moveToPoint(-53, -48.5, 1500, {.forwards = false});
       chassis.moveToPoint(-60, -48.5, 2500);
@@ -101,18 +101,18 @@ void fullRight() {
       chassis.moveToPose(-48,-48, -90, 1500, {.forwards = false});
       pros::delay(750);
       plateArms.retract();
-      chassis.turnToHeading(145,1000);
-      chassis.moveToPoint(-36, -59, 1500, {}, false);
+      chassis.turnToHeading(160,1000);
+      chassis.moveToPoint(-38, -60.5, 1500, {}, false);
       Bottom.brake();
       Top.brake();
-      chassis.turnToHeading(95, 750);
-      chassis.moveToPose(46, -64.5, 90, 2500);
-      chassis.turnToHeading(40,1000);
-      chassis.moveToPoint(56, -54.5, 1500);
+      chassis.turnToHeading(100, 750);
+      chassis.moveToPoint(46, -64.5, 2000, {.maxSpeed = 90});
+      chassis.turnToHeading(40,750);
+      chassis.moveToPoint(56, -51, 2000, {.maxSpeed = 80});
     //Scores first matchload
       chassis.turnToHeading(95,1000);
-      chassis.moveToPoint(0, -49, 1750, {.forwards = false, .maxSpeed = 90}, false);
-      chassis.moveToPoint(0,-49,5250, {.forwards = false});
+      chassis.moveToPoint(0, -51, 1750, {.forwards = false, .maxSpeed = 90}, false);
+      chassis.moveToPoint(0,-48,5250, {.forwards = false});
       lid.retract();
       Top.move(motorVelocity(100));
       Bottom.move(motorVelocity(100));
@@ -123,18 +123,21 @@ void fullRight() {
       chassis.setPose(30,-48, 90);
       Top.move(motorVelocity(100));
       Bottom.move(motorVelocity(100));
-      pros::delay(2500);
+      pros::delay(2000);
+      Top.move(motorVelocity(-100));
+      pros::delay(500);
       lid.extend();
       pros::delay(500);
     //Second matchload
       plateArms.extend();
-      chassis.moveToPose(54, -48, 90, 1500);
+      chassis.moveToPose(54, -48, 90, 1500, {}, false);
+      Top.move(motorVelocity(100));
       chassis.moveToPoint(65, -48, 2000);
       chassis.moveToPoint(55.5, -48, 1500, {.forwards = false});
       chassis.moveToPoint(65, -48, 2500);
     //Scores second matchload
       chassis.moveToPoint(0, -48, 2000, {.forwards = false, .maxSpeed = 90});
-      chassis.moveToPoint(0,-48, 6000, {.forwards = false});
+      chassis.moveToPoint(0,-48, 5000, {.forwards = false});
       pros::delay(500);
       lid.retract();
       Top.move(motorVelocity(100));
@@ -146,19 +149,24 @@ void fullRight() {
       chassis.setPose(30,-48, 90);
       Top.move(motorVelocity(100));
       Bottom.move(motorVelocity(100));
-      pros::delay(4250);
+      pros::delay(3250);
     //Goes to park
-      chassis.moveToPoint(48, -48, 1500, {}, false);
+      chassis.moveToPoint(48, -48, 1000, {}, false);
       Bottom.brake();
       Top.brake();
       lid.extend();
       plateArms.retract();
-      chassis.turnToHeading(0, 1500);
-      chassis.moveToPoint(48 ,-34, 2000);
-      chassis.turnToHeading(-90, 1500);
-      chassis.moveToPoint(-56, -34, 4000, {.maxSpeed = 75});
-      chassis.turnToHeading(-15, 1000);
-      chassis.moveToPoint(-65, -10, 1500, {.minSpeed = 127});
+      chassis.turnToHeading(0, 1000);
+      chassis.moveToPoint(48 ,-32, 1000);
+      chassis.turnToHeading(-90, 1000);
+      chassis.moveToPoint(-56, -32, 3500, {.maxSpeed = 75});
+      chassis.turnToHeading(-15, 750);
+      chassis.moveToPoint(-65,-20, 1000, {.minSpeed = 80});
+      chassis.turnToHeading(0, 500);
+      chassis.moveToPoint(-65, 5, 1000, {.minSpeed = 127});
+      Bottom.move(motorVelocity(-100));
+      Top.move(motorVelocity(-100));
+      pros::delay(1250);
       Bottom.move(motorVelocity(100));
       Top.move(motorVelocity(100));
       // pros::delay(500);
