@@ -102,17 +102,17 @@ void fullRight() {
       pros::delay(750);
       plateArms.retract();
       chassis.turnToHeading(145,1000);
-      chassis.moveToPoint(-36, -59, 2000, {}, false);
+      chassis.moveToPoint(-36, -59, 1500, {}, false);
       Bottom.brake();
       Top.brake();
-      chassis.turnToHeading(95, 1000);
-      chassis.moveToPose(46, -63.5, 90, 4000);
+      chassis.turnToHeading(95, 750);
+      chassis.moveToPose(46, -64.5, 90, 2500);
       chassis.turnToHeading(40,1000);
       chassis.moveToPoint(56, -54.5, 1500);
     //Scores first matchload
-      chassis.turnToHeading(95,2000);
-      chassis.moveToPoint(0, -49, 7000, {.forwards = false});
-      pros::delay(1750);
+      chassis.turnToHeading(95,1000);
+      chassis.moveToPoint(0, -49, 1750, {.forwards = false, .maxSpeed = 90}, false);
+      chassis.moveToPoint(0,-49,5250, {.forwards = false});
       lid.retract();
       Top.move(motorVelocity(100));
       Bottom.move(motorVelocity(100));
@@ -120,6 +120,7 @@ void fullRight() {
       Top.move(motorVelocity(-100));
       Bottom.move(motorVelocity(-100));
       pros::delay(500);
+      chassis.setPose(30,-48, 90);
       Top.move(motorVelocity(100));
       Bottom.move(motorVelocity(100));
       pros::delay(2500);
@@ -127,13 +128,14 @@ void fullRight() {
       pros::delay(500);
     //Second matchload
       plateArms.extend();
-      chassis.moveToPose(55.5, -52, 90, 1500);
-      chassis.moveToPoint(65, -52, 2000);
-      chassis.moveToPoint(57, -52, 1500, {.forwards = false});
-      chassis.moveToPoint(65, -52, 2500);
+      chassis.moveToPose(54, -48, 90, 1500);
+      chassis.moveToPoint(65, -48, 2000);
+      chassis.moveToPoint(55.5, -48, 1500, {.forwards = false});
+      chassis.moveToPoint(65, -48, 2500);
     //Scores second matchload
-      chassis.moveToPoint(0, -51.5, 3000, {.forwards = false});
-      pros::delay(1750);
+      chassis.moveToPoint(0, -48, 2000, {.forwards = false, .maxSpeed = 90});
+      chassis.moveToPoint(0,-48, 6000, {.forwards = false});
+      pros::delay(500);
       lid.retract();
       Top.move(motorVelocity(100));
       Bottom.move(motorVelocity(100));
@@ -141,21 +143,24 @@ void fullRight() {
       Top.move(motorVelocity(-100));
       Bottom.move(motorVelocity(-100));
       pros::delay(500);
+      chassis.setPose(30,-48, 90);
       Top.move(motorVelocity(100));
       Bottom.move(motorVelocity(100));
-      pros::delay(4000);
+      pros::delay(4250);
     //Goes to park
-      chassis.moveToPoint(45, -53, 1500, {}, false);
+      chassis.moveToPoint(48, -48, 1500, {}, false);
       Bottom.brake();
       Top.brake();
       lid.extend();
       plateArms.retract();
       chassis.turnToHeading(0, 1500);
-      chassis.moveToPoint(45 ,-37, 2000);
+      chassis.moveToPoint(48 ,-34, 2000);
       chassis.turnToHeading(-90, 1500);
-      chassis.moveToPoint(-62, -37, 5000, {.maxSpeed = 75});
-      chassis.turnToHeading(-25, 1500);
-      chassis.moveToPoint(-68, -10, 1500, {.minSpeed = 127});
+      chassis.moveToPoint(-56, -34, 4000, {.maxSpeed = 75});
+      chassis.turnToHeading(-15, 1000);
+      chassis.moveToPoint(-65, -10, 1500, {.minSpeed = 127});
+      Bottom.move(motorVelocity(100));
+      Top.move(motorVelocity(100));
       // pros::delay(500);
       // chassis.moveToPoint(-68, -100, 500, {.forwards = false, .minSpeed = 127});
 
