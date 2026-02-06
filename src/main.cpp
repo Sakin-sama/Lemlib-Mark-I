@@ -1,8 +1,5 @@
 #include "main.h"
-#include "Lemlib/api.hpp"
-#include "pros/misc.h"
-#include "pros/motor_group.hpp"
-#include "pros/motors.h"
+
 
 /*
 Run ts on start Jacob:
@@ -52,6 +49,7 @@ void initialize() {
             pros::delay(20);
         }
     });
+    pros::delay(1000);
 }
 
 /**
@@ -73,7 +71,6 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-
 }
 
 /**
@@ -88,7 +85,6 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-
 }
 
 /**

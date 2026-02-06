@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Lemlib Mark I",
+    "project_name": "Left",
     "target": "v5",
     "templates": {
       "LemLib": {
@@ -635,7 +635,7 @@
       }
     },
     "upload_options": {
-      "slot": 8,
+      "slot": 1,
       "description": "ooga booga"
     },
     "use_early_access": false

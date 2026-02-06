@@ -1,4 +1,8 @@
-#include "autons.hpp"
+ #include "autons.hpp"
+#include "helpers.hpp"
+#include "pros/motors.h"
+
+std::string rightColor;
 
 void testingPID() {
   //Setup

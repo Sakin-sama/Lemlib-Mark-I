@@ -18,13 +18,15 @@ extern bool autonSelected;
         extern pros::Optical BlockColorSensor;
     //Imu
         extern pros::Imu Imu;
+        extern pros::Rotation vertical_encoder;
+        extern lemlib::TrackingWheel vertical_tracking_wheel;
+
     //Odoms
         extern lemlib::OdomSensors Sensors;
 
 //Groups
     extern pros::MotorGroup LeftMotors; //left drivetrain
     extern pros::MotorGroup RightMotors; //right drivetrain
-    extern pros::MotorGroup Mandibles; //Should default to intake
 
 //Drivetrain
     extern lemlib::Drivetrain Drivetrain;
