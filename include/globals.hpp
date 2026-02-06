@@ -1,9 +1,13 @@
 #include "api.h"
 #include "lemlib/api.hpp"
+#include <sys/_intsup.h>
 
 //Variables
 extern int selectedAuton;
 extern bool autonSelected;
+extern int intakeMotorSetting;
+extern int intakeMotorSettingLast;
+
 //Controller
     extern pros::Controller master;
 
@@ -16,7 +20,9 @@ extern bool autonSelected;
   extern  pros::Motor splitter;
 
 //Pneumatics
-
+  extern pros::adi::Pneumatics bottomPiston;
+  extern pros::adi::Pneumatics topPiston;
+  extern pros::adi::Pneumatics descorerPiston;
 
 //Sensors
     //Color sensors

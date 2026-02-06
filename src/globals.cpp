@@ -1,4 +1,5 @@
 #include "globals.hpp"
+#include <sys/_intsup.h>
 
 //chassis and master (controller) are LOWERCASE
 
@@ -8,14 +9,16 @@ int DRIVETRAIN_RPM = 400; //4:2 gear ratio, 200rpm gearbox (green)
 float HORIZONTAL_DRIFT = 2; //needs tuning
 int selectedAuton = 1;
 bool autonSelected = false;
+int intakeMotorSetting = 0;
+int intakeMotorSettingLast = 0;
 
 //Controller
     pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Motors
   //Drivetrain
-    pros::MotorGroup Right({-7,-8}, pros::v5::MotorGears::green);
-    pros::MotorGroup Left({4,5}, pros::v5::MotorGears::green);
+    pros::MotorGroup Right({7,8}, pros::v5::MotorGears::green);
+    pros::MotorGroup Left({-4,-5}, pros::v5::MotorGears::green);
   //Others
     pros::Motor bottomIntake(11, pros::v5::MotorGears::blue);
     pros::Motor topIntake(13, pros::v5::MotorGears::blue);
@@ -25,9 +28,9 @@ bool autonSelected = false;
     pros::Motor splitter(16, pros::v5::MotorGears::green);
 
 //Pneumatics
-  pros::adi::Pneumatics bottomPiston(6,false);
-  pros::adi::Pneumatics topPiston(7, false);
-  pros::adi::Pneumatics descorerPiston(8, true);
+  pros::adi::Pneumatics bottomPiston('F',false);
+  pros::adi::Pneumatics topPiston('G', false);
+  pros::adi::Pneumatics descorerPiston('H', true);
 
 //Sensors
   pros::Imu Imu(-18);
