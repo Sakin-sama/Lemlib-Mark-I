@@ -25,9 +25,10 @@ bool autonSelected = false;
     pros::Motor splitter(16, pros::v5::MotorGears::green);
 
 //Pneumatics
+  pros::adi::DigitalOut bottomPiston(6,false);
 
 //Sensors
-  pros::Imu Imu(18);
+  pros::Imu Imu(-18);
 //   pros::Distance left(0);
 //   pros::Distance right(0);
 //   pros::Distance forward(0);
@@ -48,8 +49,8 @@ bool autonSelected = false;
 
 //Drivetrain
     lemlib::Drivetrain Drivetrain(
-        &LeftMotors,
-        &RightMotors,
+        &Left,
+        &Right,
         TRACK_WIDTH, //measure
         lemlib::Omniwheel::NEW_325, //idk if it's new or old 325
         DRIVETRAIN_RPM, //gear ratio  * gear cartridge (200)

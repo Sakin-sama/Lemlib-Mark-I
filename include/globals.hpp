@@ -8,7 +8,12 @@ extern bool autonSelected;
     extern pros::Controller master;
 
 //Motors
-
+  extern  pros::Motor bottomIntake;
+  extern  pros::Motor topIntake;
+  extern  pros::Motor flywheel;
+  extern  pros::Motor agitator;
+  extern  pros::Motor indexer;
+  extern  pros::Motor splitter;
 
 //Pneumatics
 
