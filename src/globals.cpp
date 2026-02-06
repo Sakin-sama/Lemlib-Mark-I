@@ -4,23 +4,15 @@
 
 //Variables
 float TRACK_WIDTH = 12.875; //inches
-<<<<<<< HEAD
 int DRIVETRAIN_RPM = 400; //4:2 gear ratio, 200rpm gearbox (green)
 float HORIZONTAL_DRIFT = 2; //needs tuning
 int selectedAuton = 1;
-=======
-int DRIVETRAIN_RPM = 450; //4:2 gear ratio, 200rpm gearbox (green)
-float HORIZONTAL_DRIFT = 8; //needs tuning
-
-int autonSelector = 1;
->>>>>>> origin/S-bot-two
 bool autonSelected = false;
 
 //Controller
     pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Motors
-<<<<<<< HEAD
   //Drivetrain
     pros::MotorGroup Right({-7,-8}, pros::v5::MotorGears::green);
     pros::MotorGroup Left({4,5}, pros::v5::MotorGears::green);
@@ -53,60 +45,6 @@ bool autonSelected = false;
     nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
     &Imu // inertial sensor
     ); 
-=======
-    //Intake/Outake motors
-        pros::Motor Bottom(14);
-        pros::Motor Middle(1);
-        pros::Motor Top(10);
-    //Drivetrain motors
-				pros::Motor FrontLeftMotor(-13, pros::v5::MotorGears::blue);
-        pros::Motor MiddleLeftMotor(-12, pros::v5::MotorGears::blue);
-				pros::Motor BackLeftMotor(-11, pros::v5::MotorGears::blue);
-				pros::Motor FrontRightMotor(18, pros::v5::MotorGears::blue);
-        pros::Motor MiddleRightMotor(19, pros::v5::MotorGears::blue);
-				pros::Motor BackRightMotor(20, pros::v5::MotorGears::blue);
-		
-//Pneumatics
-    //"Plate"
-        pros::adi::Pneumatics PlateArm('F', false);
-    //"Arm"
-        pros::adi::Pneumatics BottomArm('E', false);
-        pros::adi::Pneumatics TopArm('G', false);
-    //"Outblock"
-        pros::adi::Pneumatics Outblock('D', false);
-    //"Downblock"
-        pros::adi::Pneumatics Downblock('H', true);
-
-//Sensors - these are all defaults after the color sensor
-    //Color sensors
-        pros::Optical BlockColorSensor(1);
-    //imu
-        pros::Imu Imu(7);
-//Odom stuffs
-    // horizontal tracking wheel encoder
-        pros::Rotation vertical_encoder(17);
-    // vertical tracking wheel encoder
-//        pros::ADIEncoder vertical_encoder('C', 'D', true);
-     // horizontal tracking wheel
-//        lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_encoder, lemlib::Omniwheel::NEW_275, -5.75);
-    // vertical tracking wheel
-        lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, -0.5);
-    
-
-// odometry settings
-    lemlib::OdomSensors Sensors(
-        &vertical_tracking_wheel, // vertical tracking wheel 1, set to null
-        nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
-        nullptr, // horizontal tracking wheel 1
-        nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
-        &Imu
-    ); // inertial sensor
-
-
-//Groups
-				pros::MotorGroup RightMotors({FrontLeftMotor.get_port(), MiddleLeftMotor.get_port(), BackLeftMotor.get_port()}); //left drivetrain
-				pros::MotorGroup LeftMotors({FrontRightMotor.get_port(), MiddleRightMotor.get_port(), BackRightMotor.get_port()}); //right drivetrain
->>>>>>> origin/S-bot-two
 
 //Drivetrain
     lemlib::Drivetrain Drivetrain(

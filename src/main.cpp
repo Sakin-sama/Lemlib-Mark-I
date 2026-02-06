@@ -2,7 +2,6 @@
 
 
 /*
-<<<<<<< HEAD
 Run ts on start Jacob:
 
 git checkout develop
@@ -10,39 +9,6 @@ git pull origin develop
 
 //If you get merge conflicts or sum shit idk figure it out.
 //NOT git merge --- that's for cross-branch pulls. Use git pull for pulling from remote.
-=======
-
-COMMIT TESTING CODE TO DEVELOP BEFORE MASTER
-
-
-move to a branch:
-git checkout [branch name]
-
-
-Save code to current branch:
-git add .
-git commit -m "[Commit name]"
-git push origin [Current branch]
-
-
-Send code to another branch:
-git checkout [Receiving branch]
-git merge [Sending branch]
-
-
-Create new branch:
-git checkout -b [New branch name]
-git push origin [Branch name]
-
-*/
-
-
-
-/*
-
-Color Sorting only happens on top score. And it happens on the outtake level, not the intake level. Thus, color sorting should be called in topBlockExport, not intake, for the S-Bot.
-It works by switching from topExport to midExport when the color sensing recognizes the wrong color.
->>>>>>> origin/S-bot-two
 
 */
 
@@ -105,42 +71,6 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-<<<<<<< HEAD
-=======
-  
-	// while (autonSelected == false) {
-	// 	if (autonSelector == 1) {
-	// 		pros::lcd::print(5, "Left red      ");
-	// 	} else if (autonSelector ==2 ) {
-	// 		pros::lcd::print(5, "Right red     ");
-	// 	} else if (autonSelector == 3) {
-	// 		pros::lcd::print(5, "Left blue     ");
-	// 	} else if (autonSelector == 4){
-	// 		pros::lcd::print(5, "Right blue    ");
-	// 	} else {
-	// 		pros::lcd::print(5, "None          ");
-	// 	}
-
-	// 	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-	// 		if (autonSelector > 1) {
-	// 			autonSelector = autonSelector - 1;
-	// 		} else {
-	// 			autonSelector = 5;
-	// 		}
-	// 	}
-	// 	if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-	// 		if (autonSelector < 5) {
-	// 			autonSelector = autonSelector + 1;
-	// 		} else {
-	// 			autonSelector = 1;
-	// 		}
-	// 	}
-	// 	if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
-	// 		autonSelected = true;
-	// 	}
-	// 	pros::delay(100);
-	// }
->>>>>>> origin/S-bot-two
 }
 
 /**
@@ -155,10 +85,6 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-<<<<<<< HEAD
-=======
-  BottomArm.extend();
->>>>>>> origin/S-bot-two
 }
 
 /**
@@ -175,7 +101,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-<<<<<<< HEAD
   //Temporary code
     testingPID();
   //Permanent code
@@ -192,25 +117,3 @@ void opcontrol() {
       pros::delay(10);
   }
 }
-=======
-  //Temporary stuff
-  BottomArm.extend();
-  leftBlue();
-  //Permanent stuff
-  BottomArm.extend();
-	while (true) {		
-		// get left y and right y positions
-			int leftY = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-			int rightX = -master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
-
-			// move the robot
-			chassis.arcade(leftY * 0.80, rightX * 0.80, false, 0.75);
-
-			motorControls();
-    	pneumaticControls();
-			
-			// delay to save resources
-			pros::delay(25);
-	} //while true
-}
->>>>>>> origin/S-bot-two
