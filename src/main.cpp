@@ -59,7 +59,13 @@ void initialize() {
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
  */
+<<<<<<< Updated upstream
 void disabled() {}
+=======
+void disabled() {
+
+}
+>>>>>>> Stashed changes
 
 /**
  * Runs after initialize(), and before autonomous when connected to the Field
@@ -144,6 +150,7 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
+<<<<<<< Updated upstream
 
 	while (true) {
 
@@ -162,3 +169,21 @@ void opcontrol() {
 			pros::delay(25);
 	} //while true
 } //opcontrol  
+=======
+  //Temporary code
+
+  //Permanent code
+  chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+    while (true) {
+      motorControls();
+      pneumaticControls();
+      // get joystick positions
+      int leftY = 1 * master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+      int rightX = 1 * master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
+      // move the chassis with curvature drive
+      chassis.arcade(leftY, rightX);
+      // delay to save resources
+      pros::delay(10);
+  }
+}
+>>>>>>> Stashed changes

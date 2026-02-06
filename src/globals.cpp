@@ -13,6 +13,7 @@ bool autonSelected = false;
     pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Motors
+<<<<<<< Updated upstream
     //Intake/Outake motors
         pros::Motor LeftMandible(2, pros::v5::MotorGears::green); //5.5, needs limit
         pros::Motor RightMandible(-9, pros::v5::MotorGears::green); //5.5, needs limit
@@ -60,6 +61,31 @@ bool autonSelected = false;
 				pros::MotorGroup LeftMotors({FrontLeftMotor.get_port(), BackLeftMotor.get_port()}); //left drivetrain
 				pros::MotorGroup RightMotors({FrontRightMotor.get_port(), BackRightMotor.get_port()}); //right drivetrain
 				pros::MotorGroup Mandibles({LeftMandible.get_port(), RightMandible.get_port()}); //Should default to intake
+=======
+  //Drivetrain
+    pros::MotorGroup Right({0,0,0}, pros::v5::MotorGears::);
+    pros::MotorGroup Left({0,0,0}, pros::v5::MotorGears::);
+
+//Pneumatics
+
+//Sensors
+  pros::Imu Imu(0);
+  pros::Distance left(0);
+  pros::Distance right(0);
+
+//Tracking Wheel
+  pros::Rotation vertical_encoder(0);
+  lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, 0);
+
+//Odometry Settings
+  lemlib::OdomSensors Sensors(
+    nullptr, // vertical tracking wheel 1, set to null
+    nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
+    nullptr, // horizontal tracking wheel 1
+    nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
+    nullptr // inertial sensor
+    ); 
+>>>>>>> Stashed changes
 
 //Drivetrain
     lemlib::Drivetrain Drivetrain(

@@ -1,9 +1,13 @@
 #include "helpers.hpp"
 
+<<<<<<< Updated upstream
 using std::abs;
 
 int intakeMotorSetting = 0;
 int intakeMotorSettingLast = 0;
+=======
+//Variables
+>>>>>>> Stashed changes
 
 //Takes a velocity percentage and outputs in the voltage format
 double motorVelocity(double givenVelocity) {
@@ -18,6 +22,7 @@ double motorVelocity(double givenVelocity) {
   }
 }
 
+<<<<<<< Updated upstream
 //Controls the individual intake functions and what they do
 void intakeControls() {
     //Intakes blocks
@@ -85,6 +90,12 @@ void intakeControls() {
         BottomBack.brake();
         TopBack.brake();
     }
+=======
+//Controls the individual motors
+void motorControls() {
+
+  }
+>>>>>>> Stashed changes
 
 //Reversi
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
@@ -124,6 +135,7 @@ void colorSorting(std::string goodColor) {
     }
 }
 
+<<<<<<< Updated upstream
 //Controls the mandibles and their pneumatics
 void mandibleControls() {
     if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
@@ -135,4 +147,9 @@ void mandibleControls() {
         RightMandiblePnuematic.extend();
         LeftMandiblePnuematic.extend();
     }
+=======
+//Controls pneumatics
+void pneumaticControls() {
+
+>>>>>>> Stashed changes
 }

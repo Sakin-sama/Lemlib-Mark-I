@@ -9,6 +9,7 @@
     extern pros::Controller master;
 
 //Motors
+<<<<<<< Updated upstream
     //Intake/Outake motors
         extern pros::Motor LeftMandible; //5.5, needs limit
         extern pros::Motor RightMandible; //5.5, needs limit
@@ -26,6 +27,12 @@
     //"Mandibles"
         extern pros::adi::Pneumatics LeftMandiblePnuematic;
         extern pros::adi::Pneumatics RightMandiblePnuematic;
+=======
+
+
+//Pneumatics
+
+>>>>>>> Stashed changes
 
 //Sensors
     //Color sensors

@@ -2,6 +2,7 @@
 #include "globals.hpp"
 
 //Autons
+<<<<<<< Updated upstream
     //Left field autonomous routes
         //Red
             void leftRed();
@@ -12,3 +13,7 @@
             void rightRed();
         //Blue
             void rightBlue();
+=======
+    //PID Testing
+      void testingPID();
+>>>>>>> Stashed changes
