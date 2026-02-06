@@ -25,7 +25,9 @@ bool autonSelected = false;
     pros::Motor splitter(16, pros::v5::MotorGears::green);
 
 //Pneumatics
-  pros::adi::DigitalOut bottomPiston(6,false);
+  pros::adi::Pneumatics bottomPiston(6,false);
+  pros::adi::Pneumatics topPiston(7, false);
+  pros::adi::Pneumatics descorerPiston(8, true);
 
 //Sensors
   pros::Imu Imu(-18);
