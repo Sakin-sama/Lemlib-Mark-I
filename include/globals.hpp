@@ -2,37 +2,15 @@
 #include "lemlib/api.hpp"
 
 //Variables
-    extern int autonSelector;
-    extern bool autonSelected;
 
 //Controller
     extern pros::Controller master;
 
 //Motors
-<<<<<<< Updated upstream
-    //Intake/Outake motors
-        extern pros::Motor LeftMandible; //5.5, needs limit
-        extern pros::Motor RightMandible; //5.5, needs limit
-        extern pros::Motor TopBack;
-        extern pros::Motor TopOut; //5.5, needs limit
-        extern pros::Motor BottomBack; //5.5, needs limit
-        extern pros::Motor BottomOut;
-    //Drivetrain motors
-				extern pros::Motor FrontLeftMotor;
-				extern pros::Motor BackLeftMotor;
-				extern pros::Motor FrontRightMotor;
-				extern pros::Motor BackRightMotor;
-
-//Pneumatics
-    //"Mandibles"
-        extern pros::adi::Pneumatics LeftMandiblePnuematic;
-        extern pros::adi::Pneumatics RightMandiblePnuematic;
-=======
 
 
 //Pneumatics
 
->>>>>>> Stashed changes
 
 //Sensors
     //Color sensors

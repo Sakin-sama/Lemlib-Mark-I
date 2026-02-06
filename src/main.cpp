@@ -59,13 +59,9 @@ void initialize() {
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
  */
-<<<<<<< Updated upstream
-void disabled() {}
-=======
 void disabled() {
 
 }
->>>>>>> Stashed changes
 
 /**
  * Runs after initialize(), and before autonomous when connected to the Field
@@ -77,38 +73,7 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-	while (autonSelected == false) {
-		if (autonSelector == 1) {
-			pros::lcd::print(5, "Left red      ");
-		} else if (autonSelector ==2 ) {
-			pros::lcd::print(5, "Right red     ");
-		} else if (autonSelector == 3) {
-			pros::lcd::print(5, "Left blue     ");
-		} else if (autonSelector == 4){
-			pros::lcd::print(5, "Right blue    ");
-		} else {
-			pros::lcd::print(5, "不死");
-		}
 
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-			if (autonSelector > 1) {
-				autonSelector -= 1;
-			} else {
-				autonSelector = 4;
-			}
-		}
-		if (master.get_digital_new_release(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
-			if (autonSelector < 4) {
-				autonSelector += 1;
-			} else {
-				autonSelector = 1;
-			}
-		}
-		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
-			autonSelected = true;
-		}
-		pros::delay(25);
-	}
 }
 
 /**
@@ -123,17 +88,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	if (autonSelector == 1) {
-		leftRed();
-	} else if (autonSelector == 2) {
-		rightRed();
-	} else if (autonSelector == 3) {
-		leftBlue();
-	} else if (autonSelector == 4) {
-		rightBlue();
-	} else {
-		pros::lcd::print(5, "No autonomous found     ");
-	}
+
 }
 
 /**
@@ -150,26 +105,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-<<<<<<< Updated upstream
-
-	while (true) {
-
-		
-		// get left y and right y positions
-			int leftY = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-			int rightX = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
-
-			// move the robot
-			chassis.arcade(leftY, rightX, false, 0.75);
-
-			intakeControls();
-    	mandibleControls();
-			
-			// delay to save resources
-			pros::delay(25);
-	} //while true
-} //opcontrol  
-=======
   //Temporary code
 
   //Permanent code
@@ -186,4 +121,3 @@ void opcontrol() {
       pros::delay(10);
   }
 }
->>>>>>> Stashed changes

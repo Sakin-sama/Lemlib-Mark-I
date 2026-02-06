@@ -1,22 +1,5 @@
 #include "autons.hpp"
 
-<<<<<<< Updated upstream
-void leftRed() {
-    //TESTING STUFF
-    chassis.moveToPoint(25,0,3);
-}
-
-void leftBlue() {
-
-}
-
-void rightRed() {
-
-}
-
-void rightBlue() {
-
-=======
 void testingPID() {
   //Setup
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
@@ -35,5 +18,4 @@ void testingPID() {
       // chassis.moveToPoint(24,24,5000);
       // chassis.moveToPoint(0,24,5000);
       // chassis.moveToPoint(0,0,5000);
->>>>>>> Stashed changes
 }
