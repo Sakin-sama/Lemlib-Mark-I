@@ -14,19 +14,28 @@ bool autonSelected = false;
 
 //Motors
   //Drivetrain
-    // pros::MotorGroup Right({0,0,0}, pros::v5::MotorGears::);
-    // pros::MotorGroup Left({0,0,0}, pros::v5::MotorGears::);
+    pros::MotorGroup Right({-7,-8}, pros::v5::MotorGears::green);
+    pros::MotorGroup Left({4,5}, pros::v5::MotorGears::green);
+  //Others
+    pros::Motor bottomIntake(11, pros::v5::MotorGears::blue);
+    pros::Motor topIntake(13, pros::v5::MotorGears::blue);
+    pros::Motor flywheel(14, pros::v5::MotorGears::green);
+    pros::Motor agitator(21, pros::v5::MotorGears::green);
+    pros::Motor indexer(20, pros::v5::MotorGears::green);
+    pros::Motor splitter(16, pros::v5::MotorGears::green);
 
 //Pneumatics
 
 //Sensors
-  pros::Imu Imu(0);
-  pros::Distance left(0);
-  pros::Distance right(0);
+  pros::Imu Imu(18);
+//   pros::Distance left(0);
+//   pros::Distance right(0);
+//   pros::Distance forward(0);
+//   pros::Distance backward(0);
 
 //Tracking Wheel
-  pros::Rotation vertical_encoder(0);
-  lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, 0);
+//   pros::Rotation vertical_encoder(0);
+//   lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, 0);
 
 //Odometry Settings
   lemlib::OdomSensors Sensors(
@@ -34,7 +43,7 @@ bool autonSelected = false;
     nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
     nullptr, // horizontal tracking wheel 1
     nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
-    nullptr // inertial sensor
+    &Imu // inertial sensor
     ); 
 
 //Drivetrain

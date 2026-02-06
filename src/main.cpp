@@ -106,7 +106,7 @@ void autonomous() {
  */
 void opcontrol() {
   //Temporary code
-
+    testingPID();
   //Permanent code
   chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
     while (true) {
