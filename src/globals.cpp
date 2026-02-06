@@ -2,17 +2,20 @@
 
 //chassis and master (controller) are LOWERCASE
 
+//Variables
 float TRACK_WIDTH = 12.875; //inches
 int DRIVETRAIN_RPM = 400; //4:2 gear ratio, 200rpm gearbox (green)
 float HORIZONTAL_DRIFT = 2; //needs tuning
+int selectedAuton = 1;
+bool autonSelected = false;
 
 //Controller
     pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //Motors
   //Drivetrain
-    pros::MotorGroup Right({0,0,0}, pros::v5::MotorGears::);
-    pros::MotorGroup Left({0,0,0}, pros::v5::MotorGears::);
+    // pros::MotorGroup Right({0,0,0}, pros::v5::MotorGears::);
+    // pros::MotorGroup Left({0,0,0}, pros::v5::MotorGears::);
 
 //Pneumatics
 

@@ -2,7 +2,8 @@
 #include "lemlib/api.hpp"
 
 //Variables
-
+extern int selectedAuton;
+extern bool autonSelected;
 //Controller
     extern pros::Controller master;
 
