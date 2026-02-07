@@ -34,6 +34,7 @@ void fullRight() {
       pros::delay(7500);
       chassis.moveToPoint(48,48,2000);
       chassis.turnToHeading(-25,2000);
+      chassis.moveToPoint(55, 24, 2500);
 }
 
 void testingPID() {
