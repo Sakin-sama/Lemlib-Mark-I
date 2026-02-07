@@ -28,7 +28,7 @@ int intakeMotorSettingLast = 0;
     pros::Motor splitter(16, pros::v5::MotorGears::green);
 
 //Pneumatics
-  pros::adi::Pneumatics bottomPiston('F',false);
+  pros::adi::Pneumatics bottomPiston('F',true);
   pros::adi::Pneumatics topPiston('G', false);
   pros::adi::Pneumatics descorerPiston('H', true);
 
@@ -65,9 +65,9 @@ int intakeMotorSettingLast = 0;
 //PID - these are the default constants, need to be callibrated
     // lateral PID controller
         lemlib::ControllerSettings LateralController(
-            10, // proportional gain (kP)
+            30, // proportional gain (kP)
             0, // integral gain (kI)
-            3, // derivative gain (kD)
+            15, // derivative gain (kD)
             0, // anti windup
             0, // small error range, in inches
             0, // small error range timeout, in milliseconds

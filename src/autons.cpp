@@ -2,6 +2,39 @@
 #include "helpers.hpp"
 #include "pros/motors.h"
 
+void fullRight() {
+  //Setup
+    bottomPiston.extend();
+    topPiston.retract();
+    chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
+    chassis.setPose(51,10,180);
+  //Execution
+    //First matchload
+      bottomIntake.move(motorVelocity(100));
+      topIntake.move(motorVelocity(-100));
+      chassis.moveToPose(48, 48, 180, 3000, {.forwards = false});
+      chassis.turnToHeading(270, 1000, {}, false);
+      bottomPiston.retract();
+      chassis.moveToPoint(57,48,2000, {.forwards = false, .maxSpeed = 50});
+      chassis.moveToPoint(68, 48, 2000, {.forwards = false});
+      chassis.moveToPoint(65,48,1000);
+      chassis.moveToPoint(68,48,1000, {.forwards = false});
+      chassis.moveToPoint(59, 48, 2000, {.maxSpeed = 50}, false);
+      bottomPiston.extend();
+    //Score matchload
+      chassis.moveToPoint(48, 48, 2500);
+      chassis.turnToHeading(90, 2500);
+      topPiston.extend();
+      chassis.moveToPoint(0, 48, 5000, {.forwards = false, .maxSpeed = 50});
+      pros::delay(1000);
+      agitator.move(motorVelocity(100));
+      flywheel.move(motorVelocity(100));
+      splitter.move(motorVelocity(100));
+      indexer.move(motorVelocity(50));
+      pros::delay(7500);
+      chassis.moveToPoint(48,48,2000);
+      chassis.turnToHeading(-25,2000);
+}
 
 void testingPID() {
   //Setup
