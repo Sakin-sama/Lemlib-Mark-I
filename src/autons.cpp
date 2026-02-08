@@ -23,7 +23,7 @@ void fullRight() {
       bottomPiston.extend();
     //Score matchload
       chassis.moveToPoint(48, 48, 2500);
-      chassis.turnToHeading(90, 2500);
+      chassis.turnToHeading(91.5, 2500);
       topPiston.extend();
       chassis.moveToPoint(0, 48, 5000, {.forwards = false, .maxSpeed = 50});
       pros::delay(1000);
@@ -31,10 +31,14 @@ void fullRight() {
       flywheel.move(motorVelocity(100));
       splitter.move(motorVelocity(100));
       indexer.move(motorVelocity(50));
-      pros::delay(7500);
+      pros::delay(3000);
+      chassis.setPose(34,48, 90);
+      pros::delay(4500);
       chassis.moveToPoint(48,48,2000);
       chassis.turnToHeading(-25,2000);
-      chassis.moveToPoint(55, 24, 2500);
+      chassis.moveToPoint(55, 24, 2500, {.forwards = false, .maxSpeed = 60});
+      chassis.moveToPose(67,7,0,5000, {.forwards = false, .minSpeed = 30});
+      chassis.moveToPoint(68.5,-10, 1100, {.forwards = false, .minSpeed = 127});
 }
 
 void testingPID() {

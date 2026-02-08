@@ -65,7 +65,7 @@ int intakeMotorSettingLast = 0;
 //PID - these are the default constants, need to be callibrated
     // lateral PID controller
         lemlib::ControllerSettings LateralController(
-            30, // proportional gain (kP)
+            20, // proportional gain (kP)
             0, // integral gain (kI)
             15, // derivative gain (kD)
             0, // anti windup
@@ -80,7 +80,7 @@ int intakeMotorSettingLast = 0;
         lemlib::ControllerSettings AngularController(
             2, // proportional gain (kP)
             0, // integral gain (kI)
-            10, // derivative gain (kD)
+            15, // derivative gain (kD)
             0, // anti windup
             0, // small error range, in degrees
             0, // small error range timeout, in milliseconds
