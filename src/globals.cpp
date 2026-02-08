@@ -4,9 +4,9 @@
 //chassis and master (controller) are LOWERCASE
 
 //Variables
-float TRACK_WIDTH = 12.875; //inches
-int DRIVETRAIN_RPM = 400; //4:2 gear ratio, 200rpm gearbox (green)
-float HORIZONTAL_DRIFT = 2; //needs tuning
+const float TRACK_WIDTH = 12.875; //inches
+const int DRIVETRAIN_RPM = 400; //4:2 gear ratio, 200rpm gearbox (green) = 400
+const float HORIZONTAL_DRIFT = 2; //needs tuning
 int selectedAuton = 1;
 bool autonSelected = false;
 int intakeMotorSetting = 0;
@@ -40,12 +40,12 @@ int intakeMotorSettingLast = 0;
 //   pros::Distance backward(0);
 
 //Tracking Wheel
-//   pros::Rotation vertical_encoder(0);
-//   lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, 0);
+  pros::Rotation vertical_encoder(9);
+  lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, 0);
 
 //Odometry Settings
   lemlib::OdomSensors Sensors(
-    nullptr, // vertical tracking wheel 1, set to null
+    &vertical_tracking_wheel, // vertical tracking wheel 1, set to null
     nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
     nullptr, // horizontal tracking wheel 1
     nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one

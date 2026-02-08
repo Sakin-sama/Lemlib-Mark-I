@@ -3,7 +3,7 @@
 #include <sys/_intsup.h>
 
 //Variables
-extern int selectedAuton;
+extern  int selectedAuton;
 extern bool autonSelected;
 extern int intakeMotorSetting;
 extern int intakeMotorSettingLast;

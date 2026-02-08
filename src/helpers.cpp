@@ -18,22 +18,6 @@ double motorVelocity(int givenVelocity) {
 
 //Controls the individual motors
 void motorControls() {
-  if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-    intakeMotorSetting = 1;
-  } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-    intakeMotorSetting = 2;
-  } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-    intakeMotorSetting = 3;
-  } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-    intakeMotorSetting = 4;
-  } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
-    intakeMotorSetting = 5;
-  } else {
-    intakeMotorSetting = 0;
-  }
-
-
-
   if (intakeMotorSetting == 1) {
     //Intake
     bottomIntake.move(motorVelocity(100));
@@ -86,6 +70,22 @@ void motorControls() {
     flywheel.brake();
     splitter.brake();
     indexer.brake();
+  }
+
+
+  
+  if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+    intakeMotorSetting = 1;
+  } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
+    intakeMotorSetting = 2;
+  } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
+    intakeMotorSetting = 3;
+  } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+    intakeMotorSetting = 4;
+  } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_Y)) {
+    intakeMotorSetting = 5;
+  } else {
+    intakeMotorSetting = 0;
   }
 }
 

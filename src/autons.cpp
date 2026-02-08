@@ -7,7 +7,7 @@ void fullRight() {
     bottomPiston.extend();
     topPiston.retract();
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-    chassis.setPose(51,10,180);
+    chassis.setPose(51,16,180);
   //Execution
     //First matchload
       bottomIntake.move(motorVelocity(100));
@@ -27,17 +27,19 @@ void fullRight() {
       topPiston.extend();
       chassis.moveToPoint(0, 48, 5000, {.forwards = false, .maxSpeed = 50});
       pros::delay(1000);
-      agitator.move(motorVelocity(100));
-      flywheel.move(motorVelocity(100));
-      splitter.move(motorVelocity(100));
-      indexer.move(motorVelocity(50));
+      // agitator.move(motorVelocity(100));
+      // flywheel.move(motorVelocity(100));
+      // splitter.move(motorVelocity(100));
+      // indexer.move(motorVelocity(50));
+      intakeMotorSetting = 2;
+      motorControls();
       pros::delay(3000);
       chassis.setPose(34,48, 90);
       pros::delay(4500);
       chassis.moveToPoint(48,48,2000);
       chassis.turnToHeading(-25,2000);
       chassis.moveToPoint(55, 24, 2500, {.forwards = false, .maxSpeed = 60});
-      chassis.moveToPose(67,7,0,5000, {.forwards = false, .minSpeed = 30});
+      chassis.moveToPose(67,7,0,5000, {.forwards = false, .minSpeed = 50});
       chassis.moveToPoint(68.5,-10, 1100, {.forwards = false, .minSpeed = 127});
 }
 
