@@ -34,18 +34,14 @@ int intakeMotorSettingLast = 0;
 
 //Sensors
   pros::Imu Imu(-18);
-//   pros::Distance left(0);
-//   pros::Distance right(0);
-//   pros::Distance forward(0);
-//   pros::Distance backward(0);
 
 //Tracking Wheel
   pros::Rotation vertical_encoder(9);
-  lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, 0);
+  lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_275, 0);
 
-//Odometry Settings
+// odometry settings
   lemlib::OdomSensors Sensors(
-    &vertical_tracking_wheel, // vertical tracking wheel 1, set to null
+    nullptr, // vertical tracking wheel 1, set to null
     nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
     nullptr, // horizontal tracking wheel 1
     nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
