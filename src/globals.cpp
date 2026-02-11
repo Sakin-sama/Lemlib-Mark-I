@@ -33,7 +33,7 @@ int intakeMotorSettingLast = 0;
   pros::adi::Pneumatics descorerPiston('H', true);
 
 //Sensors
-  pros::Imu Imu(-18);
+  pros::Imu Imu(18);
 
 //Tracking Wheel
   pros::Rotation vertical_encoder(9);
@@ -41,7 +41,7 @@ int intakeMotorSettingLast = 0;
 
 // odometry settings
   lemlib::OdomSensors Sensors(
-    nullptr, // vertical tracking wheel 1, set to null
+    &vertical_tracking_wheel, // vertical tracking wheel 1, set to null
     nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
     nullptr, // horizontal tracking wheel 1
     nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
@@ -61,9 +61,9 @@ int intakeMotorSettingLast = 0;
 //PID - these are the default constants, need to be callibrated
     // lateral PID controller
         lemlib::ControllerSettings LateralController(
-            20, // proportional gain (kP)
+            7, // proportional gain (kP)
             0, // integral gain (kI)
-            15, // derivative gain (kD)
+            10, // derivative gain (kD)
             0, // anti windup
             0, // small error range, in inches
             0, // small error range timeout, in milliseconds
@@ -74,9 +74,9 @@ int intakeMotorSettingLast = 0;
 
     // angular PID controller
         lemlib::ControllerSettings AngularController(
-            2, // proportional gain (kP)
+            4, // proportional gain (kP)
             0, // integral gain (kI)
-            15, // derivative gain (kD)
+            50, // derivative gain (kD)
             0, // anti windup
             0, // small error range, in degrees
             0, // small error range timeout, in milliseconds

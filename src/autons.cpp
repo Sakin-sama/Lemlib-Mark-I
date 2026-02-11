@@ -7,16 +7,16 @@ void fullRight() {
     bottomPiston.extend();
     topPiston.retract();
     chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
-    chassis.setPose(51,8,180);
+    chassis.setPose(51,18,180);
   //Execution
     //First matchload
       bottomIntake.move(motorVelocity(100));
       topIntake.move(motorVelocity(-100));
-      chassis.moveToPose(48, 48, 180, 3000, {.forwards = false});
-      chassis.turnToHeading(270, 1000, {}, false);
+      chassis.moveToPose(48, 48, 180, 3000, {.forwards = false, .earlyExitRange = 0});
+      chassis.turnToHeading(-90, 1500, {}, false);
       bottomPiston.retract();
-      chassis.moveToPoint(57,48,2000, {.forwards = false, .maxSpeed = 50});
-      chassis.moveToPoint(68, 48, 2000, {.forwards = false});
+      chassis.moveToPose(57,48,-90,2000, {.forwards = false, .earlyExitRange = 0});
+      chassis.moveToPoint(68, 48, 2000, {.forwards = false, .minSpeed = 90, .earlyExitRange = 0});
       chassis.moveToPoint(65,48,1000);
       chassis.moveToPoint(68,48,1000, {.forwards = false});
       chassis.moveToPoint(59, 48, 2000, {.maxSpeed = 50}, false);
@@ -27,20 +27,21 @@ void fullRight() {
       topPiston.extend();
       chassis.moveToPoint(0, 48, 5000, {.forwards = false, .maxSpeed = 50});
       pros::delay(1000);
-      // agitator.move(motorVelocity(100));
-      // flywheel.move(motorVelocity(100));
-      // splitter.move(motorVelocity(100));
-      // indexer.move(motorVelocity(50));
-      intakeMotorSetting = 2;
-      motorControls();
+      bottomIntake.move(motorVelocity(100));
+      topIntake.move(motorVelocity(-100));
+      agitator.move(motorVelocity(100));
+      flywheel.move(motorVelocity(100));
+      splitter.move(motorVelocity(100));
+      indexer.move(motorVelocity(50));
+      topPiston.extend();
       pros::delay(3000);
       chassis.setPose(34,48, 90);
       pros::delay(4500);
       chassis.moveToPoint(48,48,2000);
       chassis.turnToHeading(-25,2000);
-      chassis.moveToPoint(55, 24, 2500, {.forwards = false, .maxSpeed = 60});
-      chassis.moveToPose(65,7,0,5000, {.forwards = false, .minSpeed = 60});
-      chassis.moveToPoint(68.5,-10, 1100, {.forwards = false, .minSpeed = 127});
+      chassis.moveToPoint(62, 30, 2500, {.forwards = false, .maxSpeed = 60});
+      chassis.turnToHeading(0, 1000);
+      chassis.moveToPoint(65,-10, 4000, {.forwards = false, .minSpeed = 127});
 }
 
 void testingPID() {
@@ -54,8 +55,8 @@ void testingPID() {
       // chassis.turnToHeading(270, 5000);
       // chassis.turnToHeading(360, 5000);
     //Lateral PID Test
-      // chassis.moveToPoint(0,24,5000);
-      // chassis.moveToPoint(0,0, 5000, {.forwards = false});
+      // chassis.moveToPoint(0,-24,5000, {.forwards = false});
+      // chassis.moveToPoint(0,0, 5000);
     //Full PID Test
       // chassis.moveToPoint(0,24,5000);
       // chassis.turnToHeading(90, 3000);
